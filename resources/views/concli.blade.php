@@ -69,10 +69,14 @@
                               </table>
                               </div>
                               <div class="col-md-6">
-                                 <button type="submit" class="btn btn-primary">Cargar Cliente</button>
+                                  <a href="/registrarNotaPedido" class="btn btn-primary">
+                                    Cargar Cliente
+                                  </a>                              
                              </div></br>
                              <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary">Registrar Cliente</button>
+                                 <a href="/registrarCliente" class="btn btn-primary">
+                                   Registrar Cliente
+                                 </a>
                             </div>
                           </div>
                       </form>

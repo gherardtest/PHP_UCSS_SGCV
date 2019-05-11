@@ -46,9 +46,11 @@
 
                           <div class="form-group col-md-12"> <!-- Street 1 -->
 
-                               <div class="col-md-6">
-                                  <button type="submit" class="btn btn-primary">Registrar Cliente</button>
-                              </div>
+                            <div class="col-md-6">
+                              <a href="/consultarCliente" class="btn btn-primary">
+                                Registrar Cliente
+                              </a>
+                            </div>
 
                           </div>
 

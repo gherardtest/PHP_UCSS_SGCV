@@ -17,7 +17,9 @@
                                   </select>
                               </div>
                               <div class="col-md-6">
-                                  <button type="submit" class="btn btn-primary">Buscar Cliente</button>
+                                <a href="/consultarCliente" class="btn btn-primary">
+                                  Buscar Cliente
+                                </a>
                               </div>
                           </div>
 
@@ -58,11 +60,11 @@
                           </div>
 
                           <div class="form-group col-md-12"> <!-- Street 1 -->
-
-                               <div class="col-md-6">
-                                  <button type="submit" class="btn btn-primary">Nuevo Producto</button>
-                              </div>
-
+                            <div class="col-md-6">
+                              <a href="/consultarProducto" class="btn btn-primary">
+                                Nuevo Producto
+                              </a>
+                            </div>
                           </div>
 
                           <div class="form-group col-md-12">

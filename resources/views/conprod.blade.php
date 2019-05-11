@@ -88,8 +88,10 @@
                               </table>
                               </div>
                               <div class="col-md-6">
-                                 <button type="submit" class="btn btn-primary">Cargar Producto</button>
-                             </div></br>
+                                <a href="/registrarNotaPedido" class="btn btn-primary">
+                                  Cargar Producto
+                                </a>
+                              </div>
                           </div>
                       </form>
                 </div>
