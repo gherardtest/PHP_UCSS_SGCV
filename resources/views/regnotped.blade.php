@@ -35,15 +35,9 @@
                           <div class="form-group col-md-12"> <!-- Street 1 -->
 
                               <div class="col-md-6">
-                                  <label for="street1_id" class="control-label">Nombre de Cliente</label>
+                                  <label for="street1_id" class="control-label">Cliente</label>
                                   <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Nombres del Cliente">
                               </div>
-
-                              <div class="col-md-6">
-                                  <label for="street1_id" class="control-label">Apellido de Cliente</label>
-                                  <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Apellidos del cliente">
-                              </div>
-
                           </div>
 
 

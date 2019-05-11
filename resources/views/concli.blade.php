@@ -26,8 +26,7 @@
                                       <tr align = "center" class="bg-primary">
                                       <th scope="col" >Check</th>
                                       <th scope="col">Código</th>
-                                      <th scope="col">Nombres</th>
-                                      <th scope="col">Apellidos</th>
+                                      <th scope="col">Cliente</th>
                                       <th scope="col">Teléfono</th>
                                       <th scope="col">Dirección</th>
                                       </tr>
@@ -36,32 +35,28 @@
                                       <tr>
                                           <td align = "center"><input type="checkbox"></td>
                                           <td align = "center" >1</td>
-                                          <td>Gherard Anthony</td>
-                                          <td>Chipana Quiñones</td>
+                                          <td>Gherard Chipana</td>
                                           <td>987376717</td>
                                           <td>Los Olivos</td>
                                       </tr>
                                       <tr>
                                           <td align = "center"><input type="checkbox"></td>
                                           <td align = "center" >2</td>
-                                          <td>Junior</td>
-                                          <td>Linares</td>
+                                          <td>Junior Linares</td>
                                           <td>985632145</td>
                                           <td>Comas</td>
                                       </tr>
                                       <tr>
                                           <td align = "center"><input type="checkbox"></td>
                                           <td align = "center" >3</td>
-                                          <td>Edgar</td>
-                                          <td>Flores</td>
+                                          <td>Edgar Flores</td>
                                           <td>985475632</td>
                                           <td>Puente Piedra</td>
                                       </tr>
                                       <tr>
                                           <td align = "center"><input type="checkbox"></td>
                                           <td align = "center" >4</td>
-                                          <td>Deysi</td>
-                                          <td>Ríos</td>
+                                          <td>Deysi Rios</td>                                          
                                           <td>985632789</td>
                                           <td>San Martín de Porres</td>
                                       </tr>
@@ -71,7 +66,7 @@
                               <div class="col-md-6">
                                   <a href="/registrarNotaPedido" class="btn btn-primary">
                                     Cargar Cliente
-                                  </a>                              
+                                  </a>
                              </div></br>
                              <div class="col-md-6">
                                  <a href="/registrarCliente" class="btn btn-primary">
