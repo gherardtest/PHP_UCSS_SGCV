@@ -1,5 +1,4 @@
 <div class="panel panel-primary">
-
     <div class="panel-heading">Menú</div>
 
     <div class="panel-body">

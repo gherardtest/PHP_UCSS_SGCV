@@ -1,17 +1,4 @@
 <!DOCTYPE html>
-<style>
-html, body{
-  margin:0;
-  padding: 0;
-}
-.navbar {
-  background-image: url("img/fondo.png");
-  width:100%;
-  height: 100%;
-  position: absolute;
-}
-</style>
-
 <html lang="en">
 <head>
     <meta charset="utf-8">
