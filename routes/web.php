@@ -38,8 +38,15 @@ Route::get('/registrarKardex', function () { return view('regkar'); });
 Route::get('/registrarRequerimientos', function () { return view('regreq'); });
 
 //EJECUTIVO DE VENTAS
+
 ////Registrar Cliente
+
 Route::get('/registrarCliente', function () { return view('regcli'); });
+
+Route::get('/clientes','CustomerController@index');
+Route::post('/clientes','CustomerController@store');
+
+
 ////Consultar Cliente
 Route::get('/consultarCliente', function () { return view('concli'); });
 ////Consultar Producto

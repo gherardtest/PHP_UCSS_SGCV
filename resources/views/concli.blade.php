@@ -5,8 +5,22 @@
                 <div class="panel-heading">Buscar Cliente</div>
 
                 <div class="panel-body">
+                  @if (session('notification'))
+                      <div class="alert alert-success">
+                        {{ session('notification') }}
+                      </div>
+                  @endif
 
-                      <form>
+                  @if (count($errors) > 0)
+                      <div class="alert alert-danger">
+                          <ul>
+                              @foreach ($errors->all() as $error)
+                                  <li>{{ $error }}</li>
+                              @endforeach
+                          </ul>
+                      </div>
+@endif
+                      <form action="/registrarCliente" method="POST">
 
                           <div class="form-group col-md-12"> <!-- Tipo documento -->
                             <div class="col-md-6">
@@ -56,7 +70,7 @@
                                       <tr>
                                           <td align = "center"><input type="checkbox"></td>
                                           <td align = "center" >4</td>
-                                          <td>Deysi Rios</td>                                          
+                                          <td>Deysi Rios</td>
                                           <td>985632789</td>
                                           <td>San Martín de Porres</td>
                                       </tr>
