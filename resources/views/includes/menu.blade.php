@@ -5,7 +5,6 @@
         <ul class="nav nav-pills nav-stacked">
 
           @if (auth()->check())
-          <li @if(request()->is('home')) class="active" @endif><a href="/home">Bienvenido</a></li>
           <!-- 1. COMPRAS -->
           <!-- JEFE DE COMPRAS -->
           @if (auth()->user()->role==1)
@@ -34,11 +33,11 @@
 
           @if (auth()->user()->role==5)
           <!-- EJECUTIVO DE VENTAS -->
-          <li @if(request()->is('registrarCliente')) class="active" @endif><a href="/registrarCliente">Registrar Cliente</a></li>
-          <li @if(request()->is('consultarCliente')) class="active" @endif><a href="/consultarCliente">Consultar Cliente</a></li>
-          <li @if(request()->is('consultarProducto')) class="active" @endif><a href="/consultarProducto">Consultar Producto</a></li>
+          <!--<li @if(request()->is('registrarCliente')) class="active" @endif><a href="/registrarCliente">Registrar Cliente</a></li>-->
+          <!--<li @if(request()->is('consultarCliente')) class="active" @endif><a href="/consultarCliente">Consultar Cliente</a></li>-->
+          <!--<li @if(request()->is('consultarProducto')) class="active" @endif><a href="/consultarProducto">Consultar Producto</a></li>-->
           <li @if(request()->is('registrarNotaPedido')) class="active" @endif><a href="/registrarNotaPedido">Registrar Nota de Pedido</a></li>
-          <li @if(request()->is('registrarSolicitudTransporte')) class="active" @endif><a href="/registrarSolicitudTransporte">Registrar Solicitud de Transporte</a></li>
+          <!--<li @if(request()->is('registrarSolicitudTransporte')) class="active" @endif><a href="/registrarSolicitudTransporte">Registrar Solicitud de Transporte</a></li>-->
           @endif
 
           @if (auth()->user()->role==6)
