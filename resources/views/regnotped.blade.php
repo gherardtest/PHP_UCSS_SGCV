@@ -10,32 +10,23 @@
 
                           <div class="form-group col-md-12"> <!-- Tipo documento -->
                               <div class="col-md-6">
-                                  <select class="form-control" id="tipoDoc">
-                                      <option value="0">Tipo de documento</option>
-                                      <option value="1">DNI</option>
-                                      <option value="2">RUC</option>
-                                  </select>
+                                  <label for="street1_id" class="control-label " >Número de Documento</label>
+                                  <input type="text" class="form-control textform" disabled="true" id="street1_id" name="street1"  placeholder="Numero de documento del cliente">
                               </div>
                               <div class="col-md-6">
-                                <a href="/consultarCliente" class="btn btn-primary">
+                              <label for="" class="control-label ">&nbsp;</label>
+                                <a href="/consultarCliente" class="btn btn-primary form-control">
                                   Buscar Cliente
                                 </a>
                               </div>
                           </div>
 
-                          <div class="form-group col-md-12"> <!-- Street 1 -->
-
-                              <div class="col-md-6">
-                                  <label for="street1_id" class="control-label ">Número de Documento</label>
-                                  <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Numero de documento del cliente">
-                              </div>
-
-                          </div>
+        
 
                           <div class="form-group col-md-12"> <!-- Street 1 -->
 
                               <div class="col-md-6">
-                                  <label for="street1_id" class="control-label">Cliente</label>
+                                  <label for="street1_id" class="control-label">Nombres del Cliente</label>
                                   <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Nombres del Cliente">
                               </div>
                           </div>
@@ -44,11 +35,11 @@
                           <div class="form-group col-md-12"> <!-- Street 1 -->
 
                               <div class="col-md-6">
-                                  <label for="street1_id" class="control-label">Dirección</label>
+                                  <label for="street1_id" class="control-label">Apellido Paterno</label>
                                   <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Direccion del cliente">
                               </div>
                               <div class="col-md-6">
-                                  <label for="street1_id" class="control-label">Teléfono</label>
+                                  <label for="street1_id" class="control-label">Apellido Materno</label>
                                   <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Telefono del cliente">
                               </div>
                           </div>
@@ -56,7 +47,12 @@
                           <div class="form-group col-md-12"> <!-- Street 1 -->
                             <div class="col-md-6">
                               <a href="/consultarProducto" class="btn btn-primary">
-                                Nuevo Producto
+                                Añadir Producto
+                              </a>
+                            </div>
+                            <div class="col-md-6">
+                              <a href="/registrarSolicitudTransporte" class="btn btn-primary">
+                                Solicitar Transporte
                               </a>
                             </div>
                           </div>
@@ -77,7 +73,11 @@
                                       <tr>
                                           <th scope="row">1</th>
                                           <td>Gaseosa 1L</td>
-                                          <td>2</td>
+                                          <td width="5">
+                                          
+                                          <input type="number" class="input-group input-group-sm mb-3 " value="2" id="cantidad" name="cantidad"  placeholder="0">
+                                        
+                                          </td>
                                           <td>3.50</td>
                                           <td>7.00</td>
                                       </tr>
@@ -86,14 +86,37 @@
                                               <th ></th>
                                               <td></td>
                                               <td></td>
+                                              <td class="">Transporte</td>
+                                              <td>0.00</td>                                             
+                                      </tr>
+                                    
+                                      <tr>
+                                              <th ></th>
+                                              <td></td>
+                                              <td></td>
+                                              <td class="">IGV</td>
+                                              <td>1.26</td>                                             
+                                      </tr>
+                                      <tr>
+                                              <th ></th>
+                                              <td></td>
+                                              <td></td>
                                               <td class="bg-info">Total</td>
-                                              <td>7.00</td>
+                                              <td>7.00</td>                                             
                                       </tr>
 
                                   </tbody>
                               </table>
                               </div>
                           </div>
+                          
+                          <div class="col-md-6">
+                              <label for="" class="control-label ">&nbsp;</label>
+                                <a href="/registrarNotaPedido" class="btn btn-primary form-control">
+                                  Registrar Nota de Pedido
+                                </a>
+                           </div>
+                          
 
                       </form>
 
