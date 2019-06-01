@@ -78,8 +78,8 @@
                                           <input type="number" class="input-group input-group-sm mb-3 " value="2" id="cantidad" name="cantidad"  placeholder="0">
                                         
                                           </td>
-                                          <td>3.50</td>
-                                          <td>7.00</td>
+                                          <td id="precio">3.50</td>
+                                          <td id="total">7.00</td>
                                       </tr>
 
                                       <tr>
@@ -122,4 +122,6 @@
 
                 </div>
             </div>
+
+            
 @endsection

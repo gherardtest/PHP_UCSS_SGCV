@@ -11,7 +11,7 @@
                           <div class="form-group col-md-12"> <!-- Tipo documento -->
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label " >Fecha Orden De transporte</label>
-                                  <input type="text" class="form-control textform" disabled="true" id="street1_id" name="street1"  placeholder="01/05/19 1:00 pm" >
+                                  <input type="text" class="form-control textform" disabled="true" id="street1_id" name="street1"   value="{{ date('d/m/Y H:i:s') }} " >
                              </div>
                              <div class="col-md-6">
                                   <label for="street1_id" class="control-label">Nro Pedido</label>
