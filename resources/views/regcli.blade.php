@@ -13,7 +13,7 @@
 
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label ">DNI / RUC</label>
-                                  <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Numero de documento del cliente">
+                                  <input type="text" class="form-control textform" id="street1_id" name="nrodoc"  placeholder="Numero de documento del cliente">
                               </div>
 
                           </div>
@@ -22,7 +22,7 @@
 
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label">Cliente</label>
-                                  <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Nombres del Cliente">
+                                  <input type="text" class="form-control textform" id="street1_id" name="name"  placeholder="Nombres del Cliente">
                               </div>
 
                           </div>
@@ -31,21 +31,19 @@
                           <div class="form-group col-md-12"> <!-- Street 1 -->
 
                               <div class="col-md-6">
-                                  <label for="street1_id" class="control-label">Dirección</label>
-                                  <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Direccion del cliente">
+                                  <label for="street1_id" class="control-label">Email</label>
+                                  <input type="text" class="form-control textform" id="street1_id" name="email"  placeholder="Email del cliente">
                               </div>
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label">Teléfono</label>
-                                  <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Telefono del cliente">
+                                  <input type="text" class="form-control textform" id="street1_id" name="phone"  placeholder="Telefono de referéncia cliente">
                               </div>
                           </div>
 
                           <div class="form-group col-md-12"> <!-- Street 1 -->
 
                             <div class="col-md-6">
-                              <a href="/consultarCliente" class="btn btn-primary">
-                                Registrar Cliente
-                              </a>
+                                    <button for="" type="submit" class="btn btn-primary">Registrar Cliente</button>
                             </div>
 
                           </div>

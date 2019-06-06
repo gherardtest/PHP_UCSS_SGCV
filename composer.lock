@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "76036da3b5b55b91dbe1e1affa01bf9e",
+    "content-hash": "814d3ab313b4be65f3cdd5d336b1007f",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -305,6 +305,51 @@
             "time": "2018-03-21T22:21:57+00:00"
         },
         {
+            "name": "kylekatarnls/update-helper",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kylekatarnls/update-helper.git",
+                "reference": "b34a46d7f5ec1795b4a15ac9d46b884377262df9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kylekatarnls/update-helper/zipball/b34a46d7f5ec1795b4a15ac9d46b884377262df9",
+                "reference": "b34a46d7f5ec1795b4a15ac9d46b884377262df9",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1.0",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "composer/composer": "^2.0.x-dev",
+                "phpunit/phpunit": ">=4.8.35 <6.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "UpdateHelper\\ComposerPlugin"
+            },
+            "autoload": {
+                "psr-0": {
+                    "UpdateHelper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle",
+                    "email": "kylekatarnls@gmail.com"
+                }
+            ],
+            "description": "Update helper",
+            "time": "2019-06-05T08:34:23+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v5.3.31",
             "source": {
@@ -433,17 +478,71 @@
             "time": "2017-03-24T16:31:06+00:00"
         },
         {
-            "name": "league/flysystem",
-            "version": "1.0.51",
+            "name": "laravelcollective/html",
+            "version": "v5.3.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "755ba7bf3fb9031e6581d091db84d78275874396"
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "299f3dccd61c3f6d89ebb9b10f36fb2a9aee5206"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/755ba7bf3fb9031e6581d091db84d78275874396",
-                "reference": "755ba7bf3fb9031e6581d091db84d78275874396",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/299f3dccd61c3f6d89ebb9b10f36fb2a9aee5206",
+                "reference": "299f3dccd61c3f6d89ebb9b10f36fb2a9aee5206",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.3.*",
+                "illuminate/routing": "5.3.*",
+                "illuminate/session": "5.3.*",
+                "illuminate/support": "5.3.*",
+                "illuminate/view": "5.3.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "illuminate/database": "5.3.*",
+                "mockery/mockery": "~0.9.4",
+                "phpunit/phpunit": "~5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "http://laravelcollective.com",
+            "time": "2017-05-21T22:00:10+00:00"
+        },
+        {
+            "name": "league/flysystem",
+            "version": "1.0.52",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "c5a5097156387970e6f0ccfcdf03f752856f3391"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/c5a5097156387970e6f0ccfcdf03f752856f3391",
+                "reference": "c5a5097156387970e6f0ccfcdf03f752856f3391",
                 "shasum": ""
             },
             "require": {
@@ -514,7 +613,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2019-03-30T13:22:34+00:00"
+            "time": "2019-05-20T20:21:14+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -640,31 +739,34 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.37.1",
+            "version": "1.38.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "5be4fdf97076a685b23efdedfc2b73ad0c5eab70"
+                "reference": "8dd4172bfe1784952c4d58c4db725d183b1c23ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/5be4fdf97076a685b23efdedfc2b73ad0c5eab70",
-                "reference": "5be4fdf97076a685b23efdedfc2b73ad0c5eab70",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8dd4172bfe1784952c4d58c4db725d183b1c23ad",
+                "reference": "8dd4172bfe1784952c4d58c4db725d183b1c23ad",
                 "shasum": ""
             },
             "require": {
+                "kylekatarnls/update-helper": "^1.1",
                 "php": ">=5.3.9",
                 "symfony/translation": "~2.6 || ~3.0 || ~4.0"
             },
             "require-dev": {
+                "composer/composer": "^1.2",
+                "friendsofphp/php-cs-fixer": "~2",
                 "phpunit/phpunit": "^4.8.35 || ^5.7"
             },
-            "suggest": {
-                "friendsofphp/php-cs-fixer": "Needed for the `composer phpcs` command. Allow to automatically fix code style.",
-                "phpstan/phpstan": "Needed for the `composer phpstan` command. Allow to detect potential errors."
-            },
+            "bin": [
+                "bin/upgrade-carbon"
+            ],
             "type": "library",
             "extra": {
+                "update-helper": "Carbon\\Upgrade",
                 "laravel": {
                     "providers": [
                         "Carbon\\Laravel\\ServiceProvider"
@@ -694,7 +796,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-04-19T10:27:42+00:00"
+            "time": "2019-06-03T15:41:40+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -1171,7 +1273,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v3.4.27",
+            "version": "v3.4.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",

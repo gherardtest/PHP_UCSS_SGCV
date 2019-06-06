@@ -20,29 +20,34 @@
                           </ul>
                       </div>
 @endif
-                      <form action="/registrarCliente" method="POST">
+              {{-- {!! Form::open(['route'=>'','method'=>'GET',]) !!} --}}
+            
 
-                          <div class="form-group col-md-12"> <!-- Tipo documento -->
-                            <div class="col-md-6">
-                                <label for="street1_id" class="control-label ">Número de Documento</label>
-                                <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Numero de documento del cliente">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="street1_id" class="control-label ">Nombre o Razón Social</label>
-                                <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Numero de documento del cliente">
-                            </div>
-                                
+              {{-- {!! Form::close() !!}
+               --}}
+                        <!--Buscador-->
+                        {{ Form::open(array('action' => 'CustomerController@show', 'method' => 'POST' )) }}
+                        <div class="form-group col-md-12"> <!-- Tipo documento -->
+                          <div class="col-md-6">
+                              <label for="street1_id" class="control-label ">Número de Documento</label>
+                              <input type="text" class="form-control textform" id="nrodoc" name="street1"  placeholder="Número de documento del cliente">
                           </div>
-                          <div class="form-group col-md-12">
-                             <div class="col-md-6">
-                                </br>
-                                <button for="street1_id" type="submit" class="btn btn-primary">Buscar Cliente</button>
-                              </div>
-                              <div class="col-md-6">
-                                </br>
-                                <button for="street1_id" type="submit" class="btn btn-primary">Registrar Cliente</button>
-                              </div>
+                          <div class="col-md-6">
+                              <label for="street1_id" class="control-label ">Nombre o Razón Social</label>
+                              <input type="text" class="form-control textform" id="name" name="name"  placeholder="Numero de documento del cliente">
                           </div>
+                          <div class="col-md-6">
+                            </br>
+                            <button for="" type="submit" class="btn btn-primary">Buscar Cliente</button>
+                            <a href="/registrarCliente" class="btn btn-primary">
+                              Registrar Cliente
+                            </a>
+                          </div>
+                              
+                        </div>
+                        {!! Form::close() !!}
+                        
+                    
                           <div class="form-group col-md-12">
                             <div class="col-md-12">
                               <table class="table table-bordered">
@@ -56,57 +61,29 @@
                                       </tr>
                                   </thead>
                                   <tbody>
-                                      <tr>
-                                          <td align = "center">
-                                            <a href="/registrarNotaPedido" class="">
-                                             Seleccionar
-                                            </a>
-                                          </td>
-                                          <td align = "center" >1</td>
-                                          <td>Gherard Chipana</td>
-                                          <td>gchipana@gmail.com</td>
-                                          <td>987376717</td>
-                                      </tr>
-                                      <tr>
-                                          <td align = "center">
-                                            <a href="/registrarNotaPedido" class="">
-                                            Seleccionar
-                                            </a>
-                                          </td> <td align = "center" >2</td>
-                                          <td>Junior Linares</td>
-                                          <td>jlinares@gmail.com</td>
-                                          <td>985632145</td>
-                                      </tr>
-                                      <tr>
-                                          <td align = "center">
-                                            <a href="/registrarNotaPedido" class="">
-                                            Seleccionar
-                                            </a>
-                                          </td>
-                                          <td align = "center" >3</td>
-                                          <td>Edgar Flores</td>
-                                          <td>eflores@gmail.com</td>
-                                          <td>985475632</td>
-                                      </tr>
-                                      <tr>
-                                          <td align = "center">
-                                            <a href="/registrarNotaPedido" class="">
-                                            Seleccionar
-                                            </a>
-                                          </td>
-                                          <td align = "center" >4</td>
-                                          <td>Deysi Rios</td>
-                                          <td>deysi123@gmail.com</td>
-                                          <td>985632789</td>
-                                          
-                                      </tr>
+                                    @foreach ($acustomers as $customer)
+                                    <tr>
+                                        <td align = "center">
+                                            {{-- {{ route ('registrarNotaPedido',[$customer->dni])}} --}}
+                                          <a href="" class="">
+                                           Seleccionar
+                                          </a>
+                                        </td>
+                                        <td align = "center" >{{$customer->nrodoc}}</td>
+                                        <td>{{$customer->name}}</td>
+                                        <td>{{$customer->email}}</td>
+                                        <td>{{$customer->phone}}</td>
+                                    </tr>
+                                    @endforeach
+                                     
+                                     
                                   </tbody>
                               </table>
                               </div>
                               
                              
                           </div>
-                      </form>
+                     
                 </div>
             </div>
 @endsection

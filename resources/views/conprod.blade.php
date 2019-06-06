@@ -8,7 +8,7 @@
 
                       <form>
 
-                          <div class="form-group col-md-12"> <!-- Tipo documento -->
+                          <div class="form-group col-md-12"> 
                             <div class="col-md-6">
                                 <label for="street1_id" class="control-label ">Código Prod.</label>
                                 <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Nombre Producto">
@@ -36,54 +36,20 @@
                                       </tr>
                                   </thead>
                                   <tbody>
-                                      <tr>
-                                          <td align = "center">
-                                            <a href="/registrarNotaPedido" class="">
-                                             Añadir
-                                            </a>
-                                          </td>
-                                          <td align = "center" >1</td>
-                                          <td>Gaseosa 1L</td>
-                                          <td> 3.50</td>
-                                          <td>Litros</td>
-                                      </tr>
-                                      <tr>
-                                          <td align = "center">
+                                    @foreach ($products as $producto)
+                                    <tr>
+                                        <td align = "center">
                                           <a href="/registrarNotaPedido" class="">
-                                             Añadir
-                                            </a>
-                                          </td>
-                                          <td align = "center" >2</td>
-                                          <td>Arroz 1Kg</td>
-                                          <td>5.50</td>
-                                          <td>Kilos</td>
-                                      </tr>
-                                      <tr>
-                                          <td align = "center">
-                                            <a href="/registrarNotaPedido" class="">
-                                             Añadir
-                                            </a>
-                                          </td>
-                                          <td align = "center" >3</td>
-                                          <td>Frejoles 1Kg</td>
-                                          <td>
-                                            2.20
-                                          </td>
-                                          <td>Kilos</td>
-                                      </tr>
-                                      <tr>
-                                          <td align = "center">
-                                            <a href="/registrarNotaPedido" class="">
-                                             Añadir
-                                            </a>
-                                          </td>
-                                          <td align = "center" >4</td>
-                                          <td>Galleta Soda</td>
-                                          <td>
-                                            1.50
-                                          </td>
-                                          <td>Unidades</td>
-                                      </tr>
+                                           Añadir
+                                          </a>
+                                        </td>
+                                        <td align = "center" >{{$producto->id}}</td>
+                                        <td>{{$producto->descripcion}}</td>
+                                        <td> {{$producto->precio}}</td>
+                                        <td>{{$producto->unidadMedida}}</td>
+                                    </tr>
+                                    @endforeach
+                                     
                                   </tbody>
                               </table>
                               </div>

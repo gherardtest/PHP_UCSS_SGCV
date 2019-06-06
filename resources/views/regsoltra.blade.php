@@ -8,7 +8,7 @@
 
                       <form>
 
-                          <div class="form-group col-md-12"> <!-- Tipo documento -->
+                          {{-- <div class="form-group col-md-12"> <!-- Tipo documento -->
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label " >Fecha Orden De transporte</label>
                                   <input type="text" class="form-control textform" disabled="true" id="street1_id" name="street1"   value="{{ date('d/m/Y H:i:s') }} " >
@@ -24,9 +24,9 @@
 
                              <div class="col-md-6">
                                   <label for="street1_id" class="control-label">Nombres del Vendedor</label>
-                                  <input type="text" disabled="true"  class="form-control textform" id="street1_id" name="street1" value= "{{ Auth::user()->name }}"">
+                                  <input type="text" disabled="true"  class="form-control textform" id="street1_id" name="street1" value= "{{ Auth::user()->name }}">
                               </div>
-                          </div>
+                          </div> --}}
 
 
                           <div class="form-group col-md-12"> <!-- Street 1 -->

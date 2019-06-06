@@ -16,10 +16,12 @@ class CreateCustomersTable extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->float('dni',15,2);
+            $table->string('nrodoc',15);
+            $table->integer('tipodoc')->default('1');//1:DNI 2: RUC
             $table->string('name');
-            $table->string('address');
+            
             $table->integer('phone');
+            $table->string('email');
 
             $table->timestamps();
         });

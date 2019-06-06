@@ -10,7 +10,7 @@ class CustomerController extends Controller
 {
     public function index(){
       $customers = Customer::all();
-      return view('regcli')->with(compact('customers'));
+      return view('concli')->with(compact('customers'));
     }
 
     public function store(Request $request){

@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Customer extends Model
 {
-    protected $fillable = ['dni','name', 'address','phone'];
+    protected $fillable = ['nrodoc','tipodoc','name','email', 'address','phone'];
+
+    public function scopeSearch($query,$name){
+        return $query->where('name','LIKE',"%$name%");
+    }
+
 }

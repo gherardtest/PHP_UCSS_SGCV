@@ -13,38 +13,48 @@ class CustomersTableSeeder extends Seeder
     public function run()
     {
           Customer::create([
-          'dni' => 72930812,
+          'nrodoc' => 74581265,
+          'tipodoc' => 1,
           'name' => 'Gherard Chipana',
-          'address' => 'Los Olivos',
-          'phone' => 987376717
+          
+          'phone' => 987376717,
+          'email' => 'gchipana@gmail.com'
           ]);
 
           Customer::create([
-          'dni' => 11456987896,
+          'nrodoc' => 11456987896,
+          'tipodoc' => 2,
           'name' => 'Waposat S.A.C.',
-          'address' => 'Rímac',
-          'phone' => 984756236
+          
+          'phone' => 984756236,
+          'email' => 'waposat@gmail.com'
           ]);
 
           Customer::create([
-          'dni' => 78562489,
+          'nrodoc' => 78945612,
+          'tipodoc' => 1,
           'name' => 'Junior Linares',
-          'address' => 'Comas',
-          'phone' => 963258741
+          
+          'phone' => 963258741,
+          'email' => 'jlinares@gmail.com'
           ]);
 
           Customer::create([
-          'dni' => 11547823651,
+          'nrodoc' => 11547823651,
+          'tipodoc' => 2,
           'name' => 'ROBSO S.A.',
-          'address' => 'San Isidro',
-          'phone' => 954785632
+          
+          'phone' => 954785632,
+          'email' => 'robso@gmail.com'
           ]);
 
           Customer::create([
-          'dni' => 741258963,
+          'nrodoc' => 75412896,
+          'tipodoc' => 1,
           'name' => 'Edgar Flores',
-          'address' => 'Puente Piedra',
-          'phone' => 974125896
+          
+          'phone' => 974125896,
+          'email' => 'eflores@gmail.com'
           ]);
     }
 }

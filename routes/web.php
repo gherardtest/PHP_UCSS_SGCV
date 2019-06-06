@@ -40,19 +40,26 @@ Route::get('/registrarRequerimientos', function () { return view('regreq'); });
 //EJECUTIVO DE VENTAS
 
 ////Registrar Cliente
+Route::get('/registrarCliente', 'CustomerController@create');
 
-Route::get('/registrarCliente', function () { return view('regcli'); });
+Route::post('/registrarCliente', 'CustomerController@store');
+//Route::post('/registrarCliente', function () { return view('regcli'); });
 
 Route::get('/clientes','CustomerController@index');
 Route::post('/clientes','CustomerController@store');
 
 
 ////Consultar Cliente
-Route::get('/consultarCliente', function () { return view('concli'); });
+Route::get('/consultarCliente', 'CustomerController@index');
+////Consultar Cliente
+Route::post('/consultarCliente', 'CustomerController@show');
+
+
 ////Consultar Producto
-Route::get('/consultarProducto', function () { return view('conprod'); });
+Route::get('/consultarProducto', 'ProductoController@index');
 ////Registrar Nota de Pedido
-Route::get('/registrarNotaPedido', function () { return view('regnotped'); });
+Route::get('/registrarNotaPedido','NotaPedidoController@index' ); 
+// function () { return view('regnotped');}
 ////Registrar Solicitud de Transporte
 Route::get('/registrarSolicitudTransporte', function () { return view('regsoltra'); });
 
