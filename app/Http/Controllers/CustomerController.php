@@ -24,6 +24,8 @@ class CustomerController extends Controller
         $acustomers = Customer::orderBy('id','DESC')
         ->paginate(10);
 
+        
+
         //$acustomers = Customer::paginate(10);
         return view('concli')->with(compact('acustomers'));
     }
