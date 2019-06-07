@@ -24,8 +24,6 @@ class CustomerController extends Controller
         $acustomers = Customer::orderBy('id','DESC')
         ->paginate(10);
 
-
-
         //$acustomers = Customer::paginate(10);
         return view('concli')->with(compact('acustomers'));
     }
@@ -49,9 +47,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $data = $request->except('_token'); 
-        Customer::create($data
-
-        );
+        Customer::create($data);
         return redirect('/consultarCliente');
     }
 
@@ -65,12 +61,9 @@ class CustomerController extends Controller
     {
         $name = $customer ->get('name') ;
         $nrodoc = $customer ->get('nrodoc') ;
-        $acustomers = Customer::orderBy('id','DESC')
-        
-                      
-                      ->where('nrodoc','=',$nrodoc)
+        $acustomers = Customer::orderBy('id','DESC')                   
                       ->where('name','LIKE',"%$name%")
-                    
+                      ->where('nrodoc','LIKE',"%$nrodoc%")
                       ->paginate(10);
         
        return view('concli')->with(compact('acustomers'));
