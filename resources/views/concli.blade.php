@@ -30,7 +30,7 @@
                         <div class="form-group col-md-12"> <!-- Tipo documento -->
                           <div class="col-md-6">
                               <label for="street1_id" class="control-label ">Número de Documento</label>
-                              <input type="text" class="form-control textform" id="nrodoc" name="street1"  placeholder="Número de documento del cliente">
+                              <input type="text" class="form-control textform" id="nrodoc" name="nrodoc"  placeholder="Número de documento del cliente">
                           </div>
                           <div class="col-md-6">
                               <label for="street1_id" class="control-label ">Nombre o Razón Social</label>

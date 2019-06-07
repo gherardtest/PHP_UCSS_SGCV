@@ -24,7 +24,7 @@ class CustomerController extends Controller
         $acustomers = Customer::orderBy('id','DESC')
         ->paginate(10);
 
-        
+
 
         //$acustomers = Customer::paginate(10);
         return view('concli')->with(compact('acustomers'));
@@ -69,7 +69,7 @@ class CustomerController extends Controller
         
                       
                       ->where('nrodoc','=',$nrodoc)
-                      ->orwhere('name','LIKE',"%$name%")
+                      ->where('name','LIKE',"%$name%")
                     
                       ->paginate(10);
         
