@@ -21,8 +21,7 @@ class CustomerController extends Controller
         //return $datos;
         
 
-        $acustomers = Customer::search($request->name)
-        ->orderBy('id','DESC')
+        $acustomers = Customer::orderBy('id','DESC')
         ->paginate(10);
 
         //$acustomers = Customer::paginate(10);
