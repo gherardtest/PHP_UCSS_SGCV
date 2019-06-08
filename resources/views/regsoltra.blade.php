@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="panel panel-primary">
-                <div class="panel-heading">Registrar Solicitud de Transporte</div>
+                <div class="panel-heading">Registrar Orden de Transporte</div>
 
                 <div class="panel-body">
 
