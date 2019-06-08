@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\DetalleNotaPedido;
 use Illuminate\Support\Facades\DB;
 use App\NotaPedido;
+use App\ComprobantePago;
 
 class ComprobantePagoController extends Controller
 {
@@ -59,7 +60,14 @@ class ComprobantePagoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->except('_token'); 
+        ComprobantePago::create($data);
+        $id = $data['nota_pedidos_id'];
+         
+        NotaPedido::where('id', '=', $id)->update(array('estadoNotaPedido' => 2));
+        
+        return redirect('consultarNotaPedido');
+      
     }
 
     /**

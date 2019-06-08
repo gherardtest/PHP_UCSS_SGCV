@@ -6,7 +6,9 @@
 
     <div class="panel-body">
 
-          <form action="" method="POST">
+          {{--  <form action="" method="POST">  --}}
+        {{ Form::open(array('action' => 'ComprobantePagoController@store', 'method' => 'POST' )) }}
+                                    
             {{ csrf_field() }}
 
               <div class="form-group col-md-12"> <!-- Street 1 -->
@@ -14,9 +16,9 @@
                   <div class="col-md-6">
                       <label for="street1_id" class="control-label ">Nro. Nota de Pedido</label>
                     @if(Session::has('nota_pedidos_id'))
-                      <input type="text" class="form-control textform" id="nota_pedido_id" name="nota_pedido_id" disabled="true" value="{{$nota_pedido_id}}">
+                      <input type="text" class="form-control textform" id="nota_pedido_id" name="nota_pedidos_id" readonly value="{{$nota_pedido_id}}">
                     @else
-                    <input type="text" class="form-control textform" id="nota_pedido_id" name="nota_pedido_id" disabled="true" >
+                    <input type="text" class="form-control textform" id="nota_pedido_id" name="nota_pedidos_id" disabled="true" >
                 
                      @endif
                                         </div>
@@ -32,11 +34,11 @@
 
                   <div class="col-md-6">
                       <label for="street1_id" class="control-label">Cajero</label>
-                      <input type="text" class="form-control textform" id="nameCajero" name="nameCajero" disabled="true" value="{{auth()->user()->name}}">
+                      <input type="text" class="form-control textform" id="name" name="name" disabled="true" value="{{auth()->user()->name}}">
                   </div>
                   <div class="col-md-6">
                     <label for="street1_id" class="control-label" style="visibility: hidden" >Cajero</label>
-                    <input style="visibility: hidden" type="text" class="form-control textform" id="idCajero" name="idCajero" disabled="true" value="{{auth()->user()->id}}">
+                    <input style="visibility: hidden" type="text" class="form-control textform" id="idCajero" name="user_id" readonly value="{{auth()->user()->id}}">
                 </div>
               </div>
 
@@ -134,7 +136,7 @@
                             </div>
                         <div class="col-md-6">
                             <label for="street1_id" class="control-label" >Vuelto</label>
-                            <input  type="text" class="form-control textform" id="vuelto" name="vuelto"  value="">
+                            <input  type="text" class="form-control textform" id="vuelto" name="Vuelto"  value="">
                         </div>
                     </div>
                 
@@ -148,8 +150,8 @@
               
 
 
-          </form>
-
+          {{--  </form>  --}}
+          {!! Form::close() !!}
     </div>
 </div>
 

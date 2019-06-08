@@ -68,7 +68,7 @@ Route::get('/registrarSolicitudTransporte', function () { return view('regsoltra
 Route::get('/registrarComprobantePago', 'ComprobantePagoController@index');
 
 Route::post('/registrarComprobantePago', 'ComprobantePagoController@show');
-
+Route::post('/registrarCP', 'ComprobantePagoController@store');
 ////Consultar Nota de Pedido
 Route::get('/consultarNotaPedido', 'NotaPedidoController@buscar');
 Route::post('/consultarNotaPedido', 'NotaPedidoController@show' );

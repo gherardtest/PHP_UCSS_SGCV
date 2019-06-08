@@ -78,7 +78,7 @@
                               <tr>
                                        <td align = "center">
                                             {{ Form::open(array('action' => 'NotaPedidoController@seleccionarNotaPedido', 'method' => 'POST' )) }}
-                                            <button for="" type="submit" name="nota_pedido_id" value="{{$notapedido->id}}" class="btn btn-primary">Seleccionar</button>
+                                            <button for="" type="submit" name="nota_pedido_id" value="{{$notapedido->id}}" class="btn btn-primary btn-sm">Seleccionar</button>
                                             {!! Form::close() !!}
                                        {{--  {{ route ('registrarNotaPedido',[$notapedido->dni])}}   --}}
                                     
@@ -87,7 +87,13 @@
                                   <td align = "center" >{{$notapedido->id}}</td>
                                   <td>{{$notapedido->nameCustomer}}</td>
                                   <td>{{$notapedido->name}}</td>
-                                  <td>{{$notapedido->estadoNotaPedido}}</td>
+                                  <td>
+                                      @if($notapedido->estadoNotaPedido==1)
+                                      Pendiente de Pago
+                                      @elseif ($notapedido->estadoNotaPedido==2)
+                                      Cancelado
+                                      @endif
+                                  </td>
                                   <td>{{$notapedido->total}}</td>
                               </tr>
                               @endforeach
