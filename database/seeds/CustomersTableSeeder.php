@@ -13,7 +13,7 @@ class CustomersTableSeeder extends Seeder
     public function run()
     {
           Customer::create([
-          'nrodoc' => 74581265,
+          'nrodoc' => 72930812,
           'tipodoc' => 1,
           'name' => 'Gherard Chipana',
           
@@ -46,15 +46,6 @@ class CustomersTableSeeder extends Seeder
           
           'phone' => 954785632,
           'email' => 'robso@gmail.com'
-          ]);
-
-          Customer::create([
-          'nrodoc' => 75412896,
-          'tipodoc' => 1,
-          'name' => 'Edgar Flores',
-          
-          'phone' => 974125896,
-          'email' => 'eflores@gmail.com'
           ]);
     }
 }

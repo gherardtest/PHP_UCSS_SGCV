@@ -10,10 +10,6 @@
 
                           <div class="form-group col-md-12"> 
                             <div class="col-md-6">
-                                <label for="street1_id" class="control-label ">Código Prod.</label>
-                                <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Nombre Producto">
-                            </div>
-                            <div class="col-md-6">
                                 <label for="street1_id" class="control-label ">Nombre Producto</label>
                                 <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Nombre Producto">
                             </div>

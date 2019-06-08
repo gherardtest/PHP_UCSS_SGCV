@@ -27,7 +27,7 @@
 
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label">Nombres del Cliente</label>
-                                  <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Nombres del Cliente">
+                                  <input type="text" class="form-control textform" disabled="true" id="street1_id" name="street1"  placeholder="Nombres del Cliente">
                               </div>
                           </div>
 
@@ -36,11 +36,11 @@
 
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label">Apellido Paterno</label>
-                                  <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Direccion del cliente">
+                                  <input type="text" class="form-control textform" disabled="true" id="street1_id" name="street1"  placeholder="Direccion del cliente">
                               </div>
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label">Apellido Materno</label>
-                                  <input type="text" class="form-control textform" id="street1_id" name="street1"  placeholder="Telefono del cliente">
+                                  <input type="text" class="form-control textform" disabled="true" id="street1_id" name="street1"  placeholder="Telefono del cliente">
                               </div>
                           </div>
 

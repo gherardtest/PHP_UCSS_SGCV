@@ -33,10 +33,6 @@
                               <input type="text" class="form-control textform" id="nrodoc" name="nrodoc"  placeholder="Número de documento del cliente">
                           </div>
                           <div class="col-md-6">
-                              <label for="street1_id" class="control-label ">Nombre o Razón Social</label>
-                              <input type="text" class="form-control textform" id="name" name="name"  placeholder="Numero de documento del cliente">
-                          </div>
-                          <div class="col-md-6">
                             </br>
                             <button for="" type="submit" class="btn btn-primary">Buscar Cliente</button>
                             <a href="/registrarCliente" class="btn btn-primary">
