@@ -65,10 +65,14 @@ Route::get('/registrarSolicitudTransporte', function () { return view('regsoltra
 
 //CAJERO
 ////Registrar Comprobante de Pago
-Route::get('/registrarComprobantePago', function () { return view('regcompag'); });
-////Consultar Nota de Pedido
-//Route::get('/consultarNotaPedido', function () { return view('connotped'); });
+Route::get('/registrarComprobantePago', 'ComprobantePagoController@index');
 
+Route::post('/registrarComprobantePago', 'ComprobantePagoController@show');
+
+////Consultar Nota de Pedido
+Route::get('/consultarNotaPedido', 'NotaPedidoController@buscar');
+Route::post('/consultarNotaPedido', 'NotaPedidoController@show' );
+Route::post('/select', 'NotaPedidoController@seleccionarNotaPedido' );
 //------------3. TRANSPORTES--------------------------------
 
 //ENCARGADO DE TRANSPORTE

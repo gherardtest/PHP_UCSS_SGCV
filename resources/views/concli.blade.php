@@ -52,6 +52,7 @@
                             <div class="col-md-12">
                               <table class="table table-bordered">
                                   <thead >
+                                    
                                       <tr align = "center" class="bg-primary">
                                       <th scope="col" >&nbsp;</th>
                                       <th scope="col">Nro Documento</th>
@@ -61,20 +62,28 @@
                                       </tr>
                                   </thead>
                                   <tbody>
-                                    @foreach ($acustomers as $customer)
-                                    <tr>
-                                        <td align = "center">
-                                            {{-- {{ route ('registrarNotaPedido',[$customer->dni])}} --}}
-                                          <a href="" class="">
-                                           Seleccionar
-                                          </a>
-                                        </td>
-                                        <td align = "center" >{{$customer->nrodoc}}</td>
-                                        <td>{{$customer->name}}</td>
-                                        <td>{{$customer->email}}</td>
-                                        <td>{{$customer->phone}}</td>
-                                    </tr>
-                                    @endforeach
+                                    @if(count($acustomers)>0)
+                                      @foreach ($acustomers as $customer)
+                                      <tr>
+                                          <td align = "center">
+                                              {{-- {{ route ('registrarNotaPedido',[$customer->dni])}} --}}
+                                            <a href="" class="">
+                                            Seleccionar
+                                            </a>
+                                          </td>
+                                          <td align = "center" >{{$customer->nrodoc}}</td>
+                                          <td>{{$customer->name}}</td>
+                                          <td>{{$customer->email}}</td>
+                                          <td>{{$customer->phone}}</td>
+                                      </tr>
+                                      @endforeach
+                                    @else
+                                      <div class="alert alert-dismissable alert-warning">
+                                        <button type="button" class="close" data-dismiss="alert">×</button>
+                                        <h4>Mensaje del sistema!</h4>
+                                        <p>No se encuentran registros</p>
+                                      </div>
+                                    @endif
                                      
                                      
                                   </tbody>

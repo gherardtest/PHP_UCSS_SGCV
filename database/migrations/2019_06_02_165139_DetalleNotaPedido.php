@@ -18,8 +18,8 @@ class DetalleNotaPedido extends Migration
             $table->unsignedBigInteger('producto_id');
             $table->unsignedBigInteger('nota_pedido_id');
             $table->integer('cantidad');
-            $table->integer('subtotal');
-
+            $table->double('subtotal',8,2);
+            
             $table->timestamps();
         });
 

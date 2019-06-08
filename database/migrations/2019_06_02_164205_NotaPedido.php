@@ -15,16 +15,19 @@ class NotaPedido extends Migration
     {
         Schema::create('nota_pedidos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('cliente_id');
+            $table->unsignedInteger('customer_id');
+            $table->unsignedInteger('user_id');
             $table->dateTime('fecha_emision');
-            $table->integer('igv');
-            $table->integer('total');
-
+            $table->double('igv',8,2);
+            $table->double('total',8,2);
+            $table->double('transporte',8,2);
+            $table->integer('estadoNotaPedido');
             $table->timestamps();
         });
 
         Schema::table('nota_pedidos', function (Blueprint $table) {
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

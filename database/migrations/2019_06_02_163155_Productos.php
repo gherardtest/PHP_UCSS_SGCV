@@ -17,7 +17,7 @@ class Productos extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('categoria_id');
             $table->string('descripcion');
-            $table->float('precio',5,2);
+            $table->double('precio',8,2);
             $table->integer('stock');           
             $table->string('unidadMedida');
                            

@@ -18,7 +18,7 @@ class CreateCustomersTable extends Migration
 
             $table->string('nrodoc',15);
             $table->integer('tipodoc')->default('1');//1:DNI 2: RUC
-            $table->string('name');
+            $table->string('nameCustomer');
             
             $table->integer('phone');
             $table->string('email');
