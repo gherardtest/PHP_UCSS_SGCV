@@ -20,7 +20,7 @@ class CustomerController extends Controller
         //$datos['Clientes'] = Customer::paginate(5);
         //return $datos;
         
-
+        
         $acustomers = Customer::orderBy('id','DESC')
         ->paginate(10);
 
@@ -48,6 +48,7 @@ class CustomerController extends Controller
     {
         $data = $request->except('_token'); 
         Customer::create($data);
+        
         return redirect('/consultarCliente');
     }
 
@@ -59,14 +60,25 @@ class CustomerController extends Controller
      */
     public function show(Request $customer)
     {
-        $name = $customer ->get('name') ;
+        $name = $customer ->get('nameCustomer') ;
         $nrodoc = $customer ->get('nrodoc') ;
         $acustomers = Customer::orderBy('id','DESC')                   
-                      ->where('name','LIKE',"%$name%")
+                      ->where('nameCustomer','LIKE',"%$name%")
                       ->where('nrodoc','LIKE',"%$nrodoc%")
                       ->paginate(10);
         
        return view('concli')->with(compact('acustomers'));
+    }
+    public function seleccionarCliente(Request $request){
+        $nrodoc = $request ->get('nrodoccliente') ;
+        $name = $request ->get('nameCustomer') ;
+        $request->session()->put('nrodoccli',$nrodoc);
+        $request->session()->put('nameCustomer',$name);
+
+        $nameCustomer = $request->session()->get('nameCustomer');
+      
+        return redirect('registrarNotaPedido');
+     
     }
 
     /**

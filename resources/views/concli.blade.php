@@ -28,10 +28,18 @@
                         <!--Buscador-->
                         {{ Form::open(array('action' => 'CustomerController@show', 'method' => 'POST' )) }}
                         <div class="form-group col-md-12"> <!-- Tipo documento -->
-                          <div class="col-md-6">
+                          {{-- <div class="col-md-6">
                               <label for="street1_id" class="control-label ">Número de Documento</label>
+
+
                               <input type="text" class="form-control textform" id="nrodoc" name="nrodoc"  placeholder="Número de documento del cliente">
-                          </div>
+                             
+                            </div>
+                         --}}
+                          <div class="col-md-6"> 
+                            <label for="street1_id" class="control-label ">Nombre cliente</label>
+                            <input type="text" class="form-control textform" id="nameCustomer" name="nameCustomer"  placeholder="Nombre del cliente">
+                        </div>
                           <div class="col-md-6">
                             </br>
                             <button for="" type="submit" class="btn btn-primary">Buscar Cliente</button>
@@ -61,16 +69,18 @@
                                     @if(count($acustomers)>0)
                                       @foreach ($acustomers as $customer)
                                       <tr>
+                                          {{ Form::open(array('action' => 'CustomerController@seleccionarCliente', 'method' => 'POST' )) }}
                                           <td align = "center">
                                               {{-- {{ route ('registrarNotaPedido',[$customer->dni])}} --}}
-                                            <a href="" class="">
-                                            Seleccionar
-                                            </a>
+                                             
+                                              <button for="" type="submit" name="nrodoccliente" value="{{$customer->nrodoc}}" class="btn btn-primary btn-sm">Seleccionar</button>
+                                             
                                           </td>
-                                          <td align = "center" >{{$customer->nrodoc}}</td>
-                                          <td>{{$customer->name}}</td>
+                                          <td align = "center"  value="{{$customer->nrodoc}}">{{$customer->nrodoc}}</td>
+                                          <td name="nameCustomer" value="{{$customer->nameCustomer}}" type="text" >{{$customer->nameCustomer}}</td>
                                           <td>{{$customer->email}}</td>
                                           <td>{{$customer->phone}}</td>
+                                          {!! Form::close() !!}
                                       </tr>
                                       @endforeach
                                     @else

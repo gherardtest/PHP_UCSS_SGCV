@@ -48,6 +48,8 @@ Route::post('/registrarCliente', 'CustomerController@store');
 Route::get('/clientes','CustomerController@index');
 Route::post('/clientes','CustomerController@store');
 
+Route::post('/selectcli','CustomerController@seleccionarCliente');
+
 
 ////Consultar Cliente
 Route::get('/consultarCliente', 'CustomerController@index');

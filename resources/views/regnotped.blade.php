@@ -11,8 +11,15 @@
                           <div class="form-group col-md-12"> <!-- Tipo documento -->
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label " >Número de Documento</label>
-                                  <input type="text" class="form-control textform" disabled="true" id="street1_id" name="street1"  placeholder="Numero de documento del cliente">
-                              </div>
+                              @if(Session::has('nrodoccli'))
+                                <input type="text" class="form-control textform" id="nrodoc" name="nrodoccli" readonly value="{{$nrodoccliente}}" >
+                              
+                                
+                                  @else
+                                  <input type="text" class="form-control textform" readonly id="street1_id" >
+                             
+                                   @endif
+                                </div>
                               <div class="col-md-6">
                               <label for="" class="control-label ">&nbsp;</label>
                                 <a href="/consultarCliente" class="btn btn-primary form-control">
@@ -27,12 +34,12 @@
 
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label">Nombres del Cliente</label>
-                                  <input type="text" class="form-control textform" disabled="true" id="street1_id" name="street1"  placeholder="Nombres del Cliente">
+                                  <input type="text" class="form-control textform" disabled="true" id="street1_id" name="street1"  readonly value="{{$nameCustomer}}">
                               </div>
                           </div>
 
 
-                          <div class="form-group col-md-12"> <!-- Street 1 -->
+                          {{-- <div class="form-group col-md-12"> <!-- Street 1 -->
 
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label">Apellido Paterno</label>
@@ -42,7 +49,7 @@
                                   <label for="street1_id" class="control-label">Apellido Materno</label>
                                   <input type="text" class="form-control textform" disabled="true" id="street1_id" name="street1"  placeholder="Telefono del cliente">
                               </div>
-                          </div>
+                          </div> --}}
 
                           <div class="form-group col-md-12"> <!-- Street 1 -->
                             <div class="col-md-6">
@@ -87,7 +94,7 @@
                                               <td></td>
                                               <td></td>
                                               <td class="">Transporte</td>
-                                              <td>0.00</td>                                             
+                                              <td>30.00</td>                                             
                                       </tr>
                                     
                                       <tr>

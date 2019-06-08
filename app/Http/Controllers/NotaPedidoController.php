@@ -14,14 +14,22 @@ class NotaPedidoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
        
        /* $inputs=Input::all();
         $dni = $inputs['dni'];
         */
-        
-        return view('regnotped');
+        if ($request->session()->has('nrodoccli')) {
+            $nrodoccliente = $request->session()->get('nrodoccli');
+            $nameCustomer = $request->session()->get('nameCustomer');
+
+           
+        }else{
+            $nrodoccliente = ' ';
+            $nameCustomer = ' ';
+        }  
+        return view('regnotped')->with(compact('nrodoccliente','nameCustomer'));
     }
 
     /**

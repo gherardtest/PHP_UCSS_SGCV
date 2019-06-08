@@ -22,7 +22,7 @@
 
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label">Cliente</label>
-                                  <input type="text" class="form-control textform" id="street1_id" name="name"  placeholder="Nombres del Cliente">
+                                  <input type="text" class="form-control textform" id="street1_id" name="nameCustomer"  placeholder="Nombres del Cliente">
                               </div>
 
                           </div>
