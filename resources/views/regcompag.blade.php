@@ -32,6 +32,17 @@
 
               <div class="form-group col-md-12"> <!-- Street 1 -->
 
+                <div class="col-md-6">
+                    <label for="street1_id" class="control-label">Cliente</label>
+                    <input type="text" class="form-control textform" id="nameCustomer" name="nameCustomer" readonly value="{{$nota_pedido_name}}">
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+
+              <div class="form-group col-md-12"> <!-- Street 1 -->
+
                   <div class="col-md-6">
                       <label for="street1_id" class="control-label">Cajero</label>
                       <input type="text" class="form-control textform" id="name" name="name" disabled="true" value="{{auth()->user()->name}}">

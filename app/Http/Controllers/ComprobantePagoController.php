@@ -20,11 +20,12 @@ class ComprobantePagoController extends Controller
  
         if ($request->session()->has('nota_pedidos_id')) {
             $id = $request->session()->get('nota_pedidos_id');
+            $nota_pedido_name = $request->session()->get('nota_pedidos_name');
+
             $nota_pedido_id = $id;
             $cabecera_nota_pedido = [];
             $detalle_nota_pedido = [];
-            //$nota_pedido_id = 0;
-            
+           
             $cabecera_nota_pedido = NotaPedido::all();
             $detalle_nota_pedido = DB::table('nota_pedidos_detalles')
             ->join('productos', 'productos.id', '=', 'nota_pedidos_detalles.producto_id')
@@ -33,12 +34,16 @@ class ComprobantePagoController extends Controller
             ->get();
             
         }else{
+            $nota_pedido_name='';
             $nota_pedido_id = 0;
             $cabecera_nota_pedido = [];
             $detalle_nota_pedido = [];
         }
+
+
+        
      
-       return view('regcompag')->with(compact('detalle_nota_pedido','cabecera_nota_pedido','nota_pedido_id'));
+       return view('regcompag')->with(compact('detalle_nota_pedido','cabecera_nota_pedido','nota_pedido_id','nota_pedido_name'));
        //return  $nota_pedido_id;
     }
 

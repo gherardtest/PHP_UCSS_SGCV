@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\NotaPedido;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class NotaPedidoController extends Controller
 {
@@ -20,16 +21,31 @@ class NotaPedidoController extends Controller
        /* $inputs=Input::all();
         $dni = $inputs['dni'];
         */
+
+
+        if(!\Session::has('detalleNota')) {
+            \Session::put('detalleNota',array());
+        }
+
+
+        if(!\Session::has('detalleTransporte')) {
+            \Session::put('detalleTransporte',array());
+        }
+        if ($request->session()->has('transporte')) {
+            $transporte = 1; 
+        }else{
+            $transporte =0;
+        }
+        $detalleNota = \Session::get('detalleNota'); 
+    
         if ($request->session()->has('nrodoccli')) {
             $nrodoccliente = $request->session()->get('nrodoccli');
-            $nameCustomer = $request->session()->get('nameCustomer');
-
-           
+            $nameCustomer = $request->session()->get('nameCustomer');          
         }else{
             $nrodoccliente = ' ';
             $nameCustomer = ' ';
         }  
-        return view('regnotped')->with(compact('nrodoccliente','nameCustomer'));
+        return view('regnotped')->with(compact('nrodoccliente','nameCustomer','detalleNota','transporte'));
     }
 
     /**
@@ -74,6 +90,7 @@ class NotaPedidoController extends Controller
     public function show(Request $request)
     {
         $nota_pedido_id = $request ->get('nota_pedido_id') ;
+        $nota_pedido_name = $request ->get('nota_pedido_name') ;
         $cliente = $request ->get('cliente') ;
         $vendedor = $request ->get('vendedor') ;
         $estado = $request ->get('estado') ;
@@ -111,9 +128,13 @@ class NotaPedidoController extends Controller
      */
     public function seleccionarNotaPedido(Request $request){
         $id = $request ->get('nota_pedido_id') ;
+        $name= $request -> get('nameCustomer');
         $request->session()->put('nota_pedidos_id',$id);
+        $request->session()->put('nota_pedidos_name',$name);
+        
         return redirect('registrarComprobantePago');
-     //return $id;
+       
+     
     }
     public function update(Request $request, $id)
     {

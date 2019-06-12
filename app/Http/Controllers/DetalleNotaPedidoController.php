@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DetalleNotaPedido extends Controller
+class DetalleNotaPedidoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,32 @@ class DetalleNotaPedido extends Controller
     {
         //
     }
+    public function agregarProducto(Request $request){
+        $id = $request ->get('productoid') ;
+        $nameProd= $request ->get('productoname') ;
+        $precioProd= $request ->get('productoprecio') ;
+        $unidadMedidaProd= $request ->get('productounidadmedida') ;
+        $producto = [
+            'product_id' => $id,
+            'product_name' => $nameProd,
+            'product_price' => $precioProd,
+            'product_unidad_medida' => $unidadMedidaProd,
+            'product_cantidad' =>1
+          ];
+        \Session::push('detalleNota', $producto);
 
+        $cart = \Session::get('detalleNota');
+return $cart ;
+/*
+        $id = $request ->get('nota_pedido_id') ;
+        $name= $request -> get('nameCustomer');
+        $request->session()->put('nota_pedidos_id',$id);
+        $request->session()->put('nota_pedidos_name',$name);
+      */  
+        //return redirect('registrarComprobantePago');
+      // return redirect('registrarNotaPedido');
+     
+    }
     /**
      * Store a newly created resource in storage.
      *

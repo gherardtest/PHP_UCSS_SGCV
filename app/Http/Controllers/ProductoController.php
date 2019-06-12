@@ -18,11 +18,24 @@ class ProductoController extends Controller
         orderBy('id','ASC')
         ->paginate(10)
         ;
-       // return  $products;
-        return view('conprod')->with(compact('products'));
+        //return  $products;
+    return view('conprod')->with(compact('products'));
    
     }
+    public function agregarProducto(Request $request){
 
+        $cart = \Session::get('detalleNota');
+
+/*
+        $id = $request ->get('nota_pedido_id') ;
+        $name= $request -> get('nameCustomer');
+        $request->session()->put('nota_pedidos_id',$id);
+        $request->session()->put('nota_pedidos_name',$name);
+      */  
+        //return redirect('registrarComprobantePago');
+       return $cart;
+     
+    }
     /**
      * Show the form for creating a new resource.
      *

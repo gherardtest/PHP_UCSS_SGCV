@@ -10,13 +10,35 @@
     <title>{{ config('app.name', 'Mayorista S.A.C.') }}</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="//bootswatch.com/3/flatly/bootstrap.css">
     <!-- Scripts -->
     <script>
+            function calculo(cantidad,precio,inputtext,totaltext){
+	
+                /* Parametros:
+                cantidad - entero con la cantidad
+                precio - entero con el precio
+                inputtotal - nombre del elemento del formulario donde ira el total
+                */
+                
+                // Calculo del subtotal
+                
+                subtotal = precio*cantidad;
+                inputtext.value=subtotal;
+                console.log('precio'+precio);
+                console.log('cantidad'+cantidad);
+                console.log('subtotal'+subtotal);
+                //Actualizar el total
+                // Utilizamos el eval. Ya que el valor es un texto y si lo tratamos como tal
+                // es como si estuviesemos manipulando una cadena.
+               // total = eval(totaltext.value);
+               //totaltext.value =  subtotal;
+            }
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
+        
     </script>
 </head>
 <body>

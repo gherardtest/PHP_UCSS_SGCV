@@ -69,7 +69,8 @@
                               <table class="table table-bordered">
                                   <thead>
                                       <tr class="bg-primary">
-                                      <th scope="col">Nro Pedido</th>
+                                      <th scope="col">Item</th>
+                                      <th scope="col">Cod. prod</th>
                                       <th scope="col">Desc. Prod</th>
                                       <th scope="col">Cantidad</th>
                                       <th scope="col">Precio</th>
@@ -77,24 +78,39 @@
                                       </tr>
                                   </thead>
                                   <tbody>
-                                      <tr>
-                                          <th scope="row">1</th>
-                                          <td>Gaseosa 1L</td>
-                                          <td width="5">
-                                          
-                                          <input type="number" class="input-group input-group-sm mb-3 " value="2" id="cantidad" name="cantidad"  placeholder="0">
-                                        
-                                          </td>
-                                          <td id="precio">3.50</td>
-                                          <td id="total">7.00</td>
-                                      </tr>
+                                      <?php $i=0;?>
+                                    @foreach ($detalleNota as $detalle)
 
+                                    <?php $i++ ?>
+                                      <tr>
+
+                                     <th scope="row">{{$i}}</th>
+                                      <td>{{$detalle['product_id']}}</td>
+                                      <td>{{$detalle['product_name']}}</td>
+
+                                      <td width="5">
+                                      
+                                      <input type="number" onchange="calculo(this.value, {{$detalle['product_price']}},total{{$detalle['product_id']}},totalN);" class="input-group input-group-sm mb-3 " value="{{$detalle['product_cantidad']}}" id="cantidad$detalle['product_id']" name="cantidad"  placeholder="0">
+                                    
+                                      </td>
+                                      <td ><input type="text" readonly id="precio{{$detalle['product_id']}}" value="{{$detalle['product_price']}}"/></td>
+                                      <td><input type="text" readonly size="8"  id="total{{$detalle['product_id']}}" value="{{$detalle['product_price']}}"></td>
+                                       
+                                    </tr>   
+                                    @endforeach  
+ 
                                       <tr>
                                               <th ></th>
                                               <td></td>
                                               <td></td>
                                               <td class="">Transporte</td>
-                                              <td>30.00</td>                                             
+                                              <td>
+                                                @if ($transporte==1)
+                                                  30.00
+                                                @else
+                                                  0.00
+                                                @endif
+                                              </td>                                             
                                       </tr>
                                     
                                       <tr>
@@ -108,7 +124,7 @@
                                               <th ></th>
                                               <td></td>
                                               <td></td>
-                                              <td class="bg-info">Total</td>
+                                              <td id="totalN" class="bg-info">Total</td>
                                               <td>7.00</td>                                             
                                       </tr>
 

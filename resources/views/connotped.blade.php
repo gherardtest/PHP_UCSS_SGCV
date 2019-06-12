@@ -70,22 +70,38 @@
                               <th scope="col">Vendedor</th>
                               <th scope="col">Estado</th>
                               <th scope="col">Total</th>
+                              <th scope="col">prueba</th>
                               </tr>
                           </thead>
                           <tbody>
                             @if(count($notapedidos)>0)
                               @foreach ($notapedidos as $notapedido)  
                               <tr>
+                                  {{ Form::open(array('action' => 'NotaPedidoController@seleccionarNotaPedido', 'method' => 'POST' )) }}
                                        <td align = "center">
-                                            {{ Form::open(array('action' => 'NotaPedidoController@seleccionarNotaPedido', 'method' => 'POST' )) }}
+                                           
                                             <button for="" type="submit" name="nota_pedido_id" value="{{$notapedido->id}}" class="btn btn-primary btn-sm">Seleccionar</button>
-                                            {!! Form::close() !!}
+                                            
                                        {{--  {{ route ('registrarNotaPedido',[$notapedido->dni])}}   --}}
                                     
                                    
                                   </td>
                                   <td align = "center" >{{$notapedido->id}}</td>
-                                  <td>{{$notapedido->nameCustomer}}</td>
+                                  <td>
+                                     
+                                        {{Form::text("nameCustomer", 
+                                      old("nameCustomer") ? old("nameCustomer") : (!empty($notapedido) ? $notapedido->nameCustomer: null),
+                                      [
+                                         "class" => "control-label",
+                                         "readonly" =>"true",
+                                         "style"=>"
+                                         outline: none;
+                                         background-color: #ffff;
+                                         border: 0;",
+                                         "placeholder" => "Username",
+                                      ])
+                         }} 
+                                    {{--  {{$notapedido->nameCustomer}}</td>  --}}
                                   <td>{{$notapedido->name}}</td>
                                   <td>
                                       @if($notapedido->estadoNotaPedido==1)
@@ -95,6 +111,8 @@
                                       @endif
                                   </td>
                                   <td>{{$notapedido->total}}</td>
+                                  
+                                  {!! Form::close() !!}
                               </tr>
                               @endforeach
                             
