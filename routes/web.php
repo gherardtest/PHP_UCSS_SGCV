@@ -90,6 +90,6 @@ Route::post('/select', 'NotaPedidoController@seleccionarNotaPedido' );
 Route::get('/generarOrdenTransporte', function () { return view('genordtra'); });
 ////Buscar Orden de Transporte
 Route::get('/buscarOrdenTransporte', function () { return view('busordtrans'); });
-////Consultar Orden de Transporte
+////Registrar Estado de Envío
 Route::get('/registrarEstadoEnvio', function () { return view('regestenvio'); });
 
