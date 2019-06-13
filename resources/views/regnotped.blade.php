@@ -12,7 +12,7 @@
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label " >Número de Documento</label>
                               @if(Session::has('nrodoccli'))
-                                <input type="text" class="form-control textform" id="nrodoc" name="nrodoccli" readonly value="{{$nrodoccliente}}" >
+                                <input type="text" class="form-control textform" disabled="true" id="nrodoc" name="nrodoccli" readonly value="{{$nrodoccliente}}" >
                               
                                 
                                   @else
@@ -20,6 +20,7 @@
                              
                                    @endif
                                 </div>
+
                               <div class="col-md-6">
                               <label for="" class="control-label ">&nbsp;</label>
                                 <a href="/consultarCliente" class="btn btn-primary form-control">
@@ -28,7 +29,6 @@
                               </div>
                           </div>
 
-        
 
                           <div class="form-group col-md-12"> <!-- Street 1 -->
 
@@ -58,7 +58,7 @@
                               </a>
                             </div>
                             <div class="col-md-6">
-                              <a href="/registrarSolicitudTransporte" class="btn btn-primary">
+                              <a href="/registrarOrdenTransporte" class="btn btn-primary">
                                 Solicitar Transporte
                               </a>
                             </div>

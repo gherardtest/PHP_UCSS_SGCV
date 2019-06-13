@@ -21,7 +21,8 @@
                     <input type="text" class="form-control textform" id="nota_pedido_id" name="nota_pedidos_id" disabled="true" >
                 
                      @endif
-                                        </div>
+                  </div>
+                  
                   <div class="col-md-6">
                         <label for="" class="control-label ">&nbsp;</label>
                           <a href="/consultarNotaPedido" class="btn btn-primary form-control">

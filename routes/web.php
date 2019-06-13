@@ -65,8 +65,12 @@ Route::get('/registrarNotaPedido','NotaPedidoController@index' );
 Route::post('/addItem','DetalleNotaPedidoController@agregarProducto');
 
 // function () { return view('regnotped');}
-////Registrar Solicitud de Transporte
-Route::get('/registrarSolicitudTransporte', function () { return view('regsoltra'); });
+////Registrar Orden de Transporte
+Route::get('/registrarOrdenTransporte', function () { return view('regsoltra'); });
+
+////Buscar Estado Envío
+Route::get('/buscarEstadoEnvio', function () { return view('buscestenv'); });
+
 
 //CAJERO
 ////Registrar Comprobante de Pago
@@ -82,9 +86,10 @@ Route::post('/select', 'NotaPedidoController@seleccionarNotaPedido' );
 //------------3. TRANSPORTES--------------------------------
 
 //ENCARGADO DE TRANSPORTE
-////Consultar Transportistas
-Route::get('/consultarTransportistas', function () { return view('contrans'); });
-////Consultar Solicitud de Transporte
-Route::get('/consultarSolicitudTransporte', function () { return view('consoltra'); });
-////Registrar Orden de Transporte
-Route::get('/registrarOrdenTransporte', function () { return view('regordtra'); });
+////Generar Orden de Transporte
+Route::get('/generarOrdenTransporte', function () { return view('genordtra'); });
+////Buscar Orden de Transporte
+Route::get('/consultarOrdenTransporte', function () { return view('consoltra'); });
+////Consultar Orden de Transporte
+Route::get('/registrarEstadoEnvio', function () { return view('regestenvio'); });
+
