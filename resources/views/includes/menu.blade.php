@@ -39,6 +39,7 @@
           <li @if(request()->is('registrarNotaPedido')) class="active" @endif><a href="/registrarNotaPedido">Registrar Nota de Pedido</a></li>
           <!--<li @if(request()->is('registrarSolicitudTransporte')) class="active" @endif><a href="/registrarSolicitudTransporte">Registrar Solicitud de Transporte</a></li>-->
           @endif
+          <li @if(request()->is('buscarEstadoEnvio')) class="active" @endif><a href="/buscarEstadoEnvio">Buscar Estado de Envío</a></li>
 
           @if (auth()->user()->role==6)
           <!-- CAJERO -->
