@@ -12,18 +12,18 @@
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label " >Orden de Transporte</label>
                               @if(Session::has('nroordentran'))
-                                <input type="text" class="form-control textform" id="ordentrans" name="nroordentran" readonly value="{{$onrordentranscli}}" >
+                                <input type="text" class="form-control textform"  id="ordentrans" name="nroordentran" readonly value="{{$onrordentranscli}}" >
                               
                                 
                                   @else
-                                  <input type="text" class="form-control textform" readonly id="street1_id" >
+                                  <input type="text" class="form-control textform" readonly id="street1_id" disabled="true" >
                              
                                    @endif
                                 </div>
 
                               <div class="col-md-6">
                               <label for="" class="control-label ">&nbsp;</label>
-                                <a href="/consultarOrdenTransporte" class="btn btn-primary form-control">
+                                <a href="/buscarOrdenTransporte" class="btn btn-primary form-control">
                                   Buscar Orden de Transporte
                                 </a>
                               </div>
@@ -36,7 +36,7 @@
                           <div class="col-md-6">  <!-- Id Nota Pedido -->
                             <label for="street1_id" class="control-label ">Nro. Nota de Pedido</label>
                           @if(Session::has('nota_pedidos_id'))
-                            <input type="text" class="form-control textform" id="nota_pedido_id" name="nota_pedidos_id" readonly value="{{$nota_pedido_id}}">
+                            <input type="text" class="form-control textform" disabled="true" id="nota_pedido_id" name="nota_pedidos_id" readonly value="{{$nota_pedido_id}}">
                           @else
                           <input type="text" class="form-control textform" id="nota_pedido_id" name="nota_pedidos_id" disabled="true" >
                       
@@ -52,7 +52,7 @@
                         
                           
                             @else
-                            <input type="text" class="form-control textform" readonly id="street1_id" >
+                            <input type="text" class="form-control textform" readonly id="street1_id" disabled="true" >
                        
                              @endif
                             </div>
