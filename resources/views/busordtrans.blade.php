@@ -56,7 +56,18 @@
                               <th scope="col">Cliente</th>                              
                               <th scope="col">Estado</th>           
                               <tr>
-                          </thead>                         
+                          </thead>      
+                          
+                          <tr >
+                            
+                                <td align = "center">                                                                     
+                                <button type="submit" class="btn btn-primary btn-sm">Seleccionar</button> </td>                                                   
+                                <td >1</td>
+                                <td >2</td>
+                                <td scope="col">Gherard</td>                              
+                                <td scope="col">Solicitado</td>           
+                                <td>
+                            </thead>   
                           
                       </table>
                       </div>
