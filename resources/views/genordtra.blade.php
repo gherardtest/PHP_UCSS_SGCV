@@ -57,6 +57,27 @@
                              @endif
                             </div>
                         </div>
+
+                        
+                        <div class="form-group col-md-12">
+                                <div class="col-md-12">
+                                  <table class="table table-bordered">
+                                      <thead >
+                                          <tr align = "center" class="bg-primary">
+                                          <th >IdProducto</th>
+                                          <th >Descripción</th>
+                                          <th >Cantidad</th>                                  
+                                      </thead>      
+                                      
+                                      <tr >                                                                   
+                                            <td >1</td>    
+                                            <td >Leche</td>
+                                            <td >2</td>                                               
+                                      </tr>   
+                                      
+                                  </table>
+                                  </div>                               
+                        </div>
  
                           <div class="form-group col-md-12"> <!-- Street 1 -->
                             <div class="col-md-6">

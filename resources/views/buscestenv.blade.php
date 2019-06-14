@@ -52,7 +52,7 @@
                               <th >N. Pedido</th>
                               <th >N. Transporte</th>                                                     
                               <th scope="col">Estado</th>           
-                              <tr>
+                              
                           </thead>      
                           
                           <tr >                                                                   
@@ -60,8 +60,7 @@
                                 <td >1</td>
                                 <td >2</td>                                                              
                                 <td scope="col">Enviado</td>           
-                                <td>
-                            </thead>   
+                          </tr>   
                           
                       </table>
                       </div>           
