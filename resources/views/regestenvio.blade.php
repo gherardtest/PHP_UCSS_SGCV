@@ -59,7 +59,7 @@
                           <div class="form-group col-md-12"> <!-- Street 1 -->
                             <div class="col-md-6">
                               <a href="/" class="btn btn-primary">
-                                Registrar Estado de Envío
+                                Registrar Cierre
                               </a>
                             </div>
                             <div class="col-md-6">
