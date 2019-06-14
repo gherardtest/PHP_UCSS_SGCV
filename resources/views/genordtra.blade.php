@@ -57,14 +57,6 @@
                              @endif
                             </div>
                         </div>
-
-                        <div class="form-group col-md-12"> <!-- Fecha de Generación -->
-                        <div class="col-md-6">
-                            <label for="street1_id" class="control-label">Fecha De Generación</label>
-                            <input class="form-control" type="date" value="2019-06-02" id="example-datetime-local-input">
-                        </div>
-
-                        </div>
  
                           <div class="form-group col-md-12"> <!-- Street 1 -->
                             <div class="col-md-6">
