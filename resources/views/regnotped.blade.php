@@ -5,20 +5,20 @@
                 <div class="panel-heading">Registrar Nota de Pedido</div>
 
                 <div class="panel-body">
-
-                      <form>
-
+                    
+                    {{ Form::open(array('action' => 'NotaPedidoController@store', 'method' => 'POST' )) }}
+                                    
+                    {{ csrf_field() }}
+        
                           <div class="form-group col-md-12"> <!-- Tipo documento -->
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label " >Número de Documento</label>
-                              @if(Session::has('nrodoccli'))
-                                <input type="text" class="form-control textform" disabled="true" id="nrodoc" name="nrodoccli" readonly value="{{$nrodoccliente}}" >
-                              
-                                
+                                  @if(Session::has('nrodoccli'))
+                                    <input type="text" class="form-control textform"readonly name="customer_id" readonly value="{{$nrodoccliente}}" >
+      
                                   @else
-                                  <input type="text" class="form-control textform" readonly id="street1_id" >
-                             
-                                   @endif
+                                    <input type="text" class="form-control textform" readonly name="customer_id" >
+                                  @endif
                                 </div>
 
                               <div class="col-md-6">
@@ -90,7 +90,7 @@
 
                                       <td width="5">
                                       
-                                      <input type="number" onchange="calculo(this.value, {{$detalle['product_price']}},total{{$detalle['product_id']}},totalN);" class="input-group input-group-sm mb-3 " value="{{$detalle['product_cantidad']}}" id="cantidad$detalle['product_id']" name="cantidad"  placeholder="0">
+                                      <input type="number" min="1" onchange="calculo(this.value, {{$detalle['product_price']}},total{{$detalle['product_id']}},totalN);" class="input-group input-group-sm mb-3 " value="{{$detalle['product_cantidad']}}" id="cantidad$detalle['product_id']"  placeholder="0">
                                     
                                       </td>
                                       <td ><input type="text" readonly id="precio{{$detalle['product_id']}}" value="{{$detalle['product_price']}}"/></td>
@@ -103,12 +103,14 @@
                                               <th ></th>
                                               <td></td>
                                               <td></td>
+                                              <td></td>
                                               <td class="">Transporte</td>
                                               <td>
                                                 @if ($transporte==1)
                                                   30.00
+                                                  <input type="number" readonly size="8"  id="transporte" value="30.00">
                                                 @else
-                                                  0.00
+                                                  <input type="number" readonly size="8" id="transporte" value="30.00">
                                                 @endif
                                               </td>                                             
                                       </tr>
@@ -117,15 +119,17 @@
                                               <th ></th>
                                               <td></td>
                                               <td></td>
+                                              <td></td>
                                               <td class="">IGV</td>
-                                              <td>1.26</td>                                             
+                                              <td><input type="number" readonly size="8" name="igv" id="totaligv" value="1.26"></td>                                             
                                       </tr>
                                       <tr>
                                               <th ></th>
                                               <td></td>
                                               <td></td>
+                                              <td></td>    
                                               <td id="totalN" class="bg-info">Total</td>
-                                              <td>7.00</td>                                             
+                                              <td><input type="number" readonly size="8" name="total" id="totalNota" value="7.00"></td>                                             
                                       </tr>
 
                                   </tbody>
@@ -135,13 +139,12 @@
                           
                           <div class="col-md-6">
                               <label for="" class="control-label ">&nbsp;</label>
-                                <a href="/registrarNotaPedido" class="btn btn-primary form-control">
-                                  Registrar Nota de Pedido
-                                </a>
+                              <button for="" type="submit" class="btn btn-primary"> Registrar Nota de Pedido</button>
+                                
                            </div>
                           
 
-                      </form>
+                           {!! Form::close() !!}
 
                 </div>
             </div>

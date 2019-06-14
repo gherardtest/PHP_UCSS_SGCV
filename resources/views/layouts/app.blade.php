@@ -29,11 +29,30 @@
                 console.log('precio'+precio);
                 console.log('cantidad'+cantidad);
                 console.log('subtotal'+subtotal);
+                totalN.value =  subtotal;
                 //Actualizar el total
                 // Utilizamos el eval. Ya que el valor es un texto y si lo tratamos como tal
                 // es como si estuviesemos manipulando una cadena.
                // total = eval(totaltext.value);
                //totaltext.value =  subtotal;
+            }
+
+            function vuelto(total,totalpagado){
+	
+                /* Parametros:
+                cantidad - entero con la cantidad
+                precio - entero con el precio
+                inputtotal - nombre del elemento del formulario donde ira el total
+                */
+                
+                // Calculo del subtotal
+                
+                var totalvuelto=0;
+                totalvuelto = totalpagado - total;
+
+                vuelto.value=totalvuelto;
+               
+
             }
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
@@ -112,6 +131,8 @@
                   @include('includes.menu')
               </div>
               <div class="col-md-9">
+                    @include('partials.sucess')
+                    @include('partials.error')
                   @yield('content')
               </div>
             </div>

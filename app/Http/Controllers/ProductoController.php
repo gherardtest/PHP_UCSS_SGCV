@@ -32,8 +32,8 @@ class ProductoController extends Controller
         $request->session()->put('nota_pedidos_id',$id);
         $request->session()->put('nota_pedidos_name',$name);
       */  
-        //return redirect('registrarComprobantePago');
-       return $cart;
+        return redirect('registrarComprobantePago');
+        //return $cart;
      
     }
     /**

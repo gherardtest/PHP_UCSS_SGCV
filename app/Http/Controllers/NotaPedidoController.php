@@ -66,7 +66,32 @@ class NotaPedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data1 = $request->except('_token');
+
+        
+        if (!$request->session()->has('nrodoccli')) {
+            \Session::flash('error','No ha seleccionado el cliente');
+        }
+
+        else{
+            \Session::flash('success','Registro Correcto');
+        }
+        $this->user =  \Auth::user();
+        $user_id=$this->user->id;
+        $fecha_emision = new \DateTime();
+        //$user_id = array(['user_id' => $this->user->id]);
+         $data2=array_add($data1, 'fecha_emision', $fecha_emision->format('d-m-Y H:i:s'));
+         $data3=array_add($data2, 'user_id', $this->user->id);
+        //NotaPedido::create($data);
+
+        // protected $fillable = ['id','cliente_id',
+       // 'fecha_emision','igv',
+         //'total','estadoNotaPedido'];
+
+       // return redirect('/registrarNotaPedido');
+        
+        
+        return $data3;
     }
 
     /**

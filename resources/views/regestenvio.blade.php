@@ -2,7 +2,7 @@
 
 @section('content')
             <div class="panel panel-primary">
-                <div class="panel-heading">Registrar Estado de Envío</div>
+                <div class="panel-heading">Cerrar Orden de transporte</div>
 
                 <div class="panel-body">
 

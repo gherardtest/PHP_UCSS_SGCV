@@ -147,9 +147,13 @@
                             
                             </div>
                         <div class="col-md-6">
-                            <label for="street1_id" class="control-label" >Vuelto</label>
-                            <input  type="text" class="form-control textform" id="vuelto" name="Vuelto"  value="">
+                           
+                                <label for="street1_id" class="control-label" >Vuelto</label>
+                                <input  type="text" class="form-control textform" id="vuelto" name="Vuelto"  value="">
+                                <span id="error" class="text-danger">xzcxzcz</span>
+                                
                         </div>
+                        
                     </div>
                 
               <div class="form-group col-md-12"> <!-- Street 1 -->

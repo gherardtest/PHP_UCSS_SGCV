@@ -70,7 +70,7 @@
                               <th scope="col">Vendedor</th>
                               <th scope="col">Estado</th>
                               <th scope="col">Total</th>
-                              <th scope="col">prueba</th>
+                             
                               </tr>
                           </thead>
                           <tbody>

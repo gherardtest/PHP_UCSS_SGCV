@@ -40,7 +40,8 @@ class DetalleNotaPedidoController extends Controller
         \Session::push('detalleNota', $producto);
 
         $cart = \Session::get('detalleNota');
-return $cart ;
+        return redirect('registrarNotaPedido');
+//return $cart ;
 /*
         $id = $request ->get('nota_pedido_id') ;
         $name= $request -> get('nameCustomer');

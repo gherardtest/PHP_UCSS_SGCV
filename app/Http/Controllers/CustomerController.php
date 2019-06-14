@@ -74,6 +74,7 @@ class CustomerController extends Controller
         $name = $request ->get('nameCustomer') ;
         $request->session()->put('nrodoccli',$nrodoc);
         $request->session()->put('nameCustomer',$name);
+        $request->session()->put('customerid',$name);
 
         $nameCustomer = $request->session()->get('nameCustomer');
       

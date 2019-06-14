@@ -61,6 +61,8 @@ Route::post('/consultarCliente', 'CustomerController@show');
 Route::get('/consultarProducto', 'ProductoController@index');
 ////Registrar Nota de Pedido
 Route::get('/registrarNotaPedido','NotaPedidoController@index' ); 
+Route::post('/insertarNotaPedido','NotaPedidoController@store' ); 
+
 //Agregar producto a detalle Nota pedido
 Route::post('/addItem','DetalleNotaPedidoController@agregarProducto');
 
