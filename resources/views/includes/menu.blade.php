@@ -31,15 +31,17 @@
           <li @if(request()->is('registrarRequerimientos')) class="active" @endif><a href="/registrarRequerimientos">Registrar Requerimientos</a></li>
           @endif
 
-          @if (auth()->user()->role==5)
           <!-- EJECUTIVO DE VENTAS -->
+          @if (auth()->user()->role==5)          
           <!--<li @if(request()->is('registrarCliente')) class="active" @endif><a href="/registrarCliente">Registrar Cliente</a></li>-->
           <!--<li @if(request()->is('consultarCliente')) class="active" @endif><a href="/consultarCliente">Consultar Cliente</a></li>-->
           <!--<li @if(request()->is('consultarProducto')) class="active" @endif><a href="/consultarProducto">Consultar Producto</a></li>-->
+          
           <li @if(request()->is('registrarNotaPedido')) class="active" @endif><a href="/registrarNotaPedido">Registrar Nota de Pedido</a></li>
+          <li @if(request()->is('buscarEstadoEnvio')) class="active" @endif><a href="/buscarEstadoEnvio">Buscar Estado de Envío</a></li>
           <!--<li @if(request()->is('registrarSolicitudTransporte')) class="active" @endif><a href="/registrarSolicitudTransporte">Registrar Solicitud de Transporte</a></li>-->
           @endif
-          <li @if(request()->is('buscarEstadoEnvio')) class="active" @endif><a href="/buscarEstadoEnvio">Buscar Estado de Envío</a></li>
+     
 
           @if (auth()->user()->role==6)
           <!-- CAJERO -->
