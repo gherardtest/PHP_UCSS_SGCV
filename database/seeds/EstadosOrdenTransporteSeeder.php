@@ -37,6 +37,6 @@ class EstadosOrdenTransporteSeeder extends Seeder
 // - Entregado
 // - Anulado
 // - Siniestrado
-
+  
     }
 }
