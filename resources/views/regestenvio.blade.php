@@ -46,11 +46,10 @@
                       <div class="col-md-6">
                                 <label for="street1_id" class="control-label ">Estado</label>
                               <select class="form-control" id="estado" name="estado">
-                                <option value="1">Emitido</option>
-                                <option value="2">Enviado</option>
-                                <option value="3">Entregado</option>
-                                <option value="4">Rechazado</option>
+                                <option value="3">Mercancía enviada a transportista</option>
+                                <option value="4">Entregado</option>
                                 <option value="5">Anulado</option>
+                                <option value="6">Siniestrado</option>
                               </select>
                         </div>
                     </div>

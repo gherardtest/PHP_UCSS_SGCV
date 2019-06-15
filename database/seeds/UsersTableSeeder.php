@@ -11,7 +11,7 @@ class UsersTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    { 
         //Administrador
         User::create([
           'name' => 'Administrador',

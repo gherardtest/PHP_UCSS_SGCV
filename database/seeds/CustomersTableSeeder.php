@@ -20,7 +20,7 @@ class CustomersTableSeeder extends Seeder
           'phone' => 987376717,
           'email' => 'gchipana@gmail.com'
           ]);
-
+         
           Customer::create([
           'nrodoc' => 11456987896,
           'tipodoc' => 2,
