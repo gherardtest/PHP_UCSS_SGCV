@@ -5,3 +5,8 @@ Plan de pruebas
 - Se debe rellenar el formulario de plan de pruebas indicando la version, autor, algun revisor, etc
 - La aplicacion se debe probar chrome, firefox e internet explorer ( si funciona)
 - 
+
+Observaciones Prof. Quito
+- Agregar vendedor en registrar nota de pedido
+- Agreagar tipo documento en buscar cñliente y reg nota pedido
+- 
