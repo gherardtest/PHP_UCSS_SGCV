@@ -1,0 +1,27 @@
+Estandares de Desarrollo
+
+- Las pruebas las valida el analista de Calidad y también el Usuario Final.
+
+Pruebas de regresión: Con esto se determina si el mantenimiento ha distorcionado las funciones.
+
+Pruebas de Facilidad de Uso: Para verificar que la interacción del sistema no genere dificultad a la hora de llegar a la información
+
+Pruebas de Cobertura: Todos los casos son validados por cada restricción e intervalo establecido.
+
+Pruebas de Rendimiento (Profile): Esto se especifica en los requerimientos no funcionales, son para ver el rendimiento del sistema
+
+Prueba de Estrés: Esto se basa en concurrencias, por ejemplo, lo ocurrido con Joinnus en el Partido de Perú cuando todos compraron al mismo tiempo y el sistema no estuvo preparado.
+
+Variante: Es la interacción del usuario con el sistema y la parte física y como responderá el sistema.
+
+Casos de Prueba (Ejemplo):
+C1=5 , Mayor=5
+C2=3, -3, Mayor = 3
+C3=2,3,2, Mayor = 3
+C4=3,4,4, Mayor = 4
+Donde C1 es por decir la condición y el Mayor es el resultado
+
+PLAN DE PRUEBAS DE SISTEMAS:
+Autor: quien define el documento
+Nombre del Proyecto: Implementación de un sistema de gestión de ventas, compras y transporte
+Analista de Calidad: ¿Quién lo va a ejecutar?
