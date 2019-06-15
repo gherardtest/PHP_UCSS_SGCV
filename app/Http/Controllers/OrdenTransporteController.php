@@ -43,6 +43,16 @@ class OrdenTransporteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     public function buscarOrdenTransporte(Request $request){
+        /*$OrdenesTransportes =  DB::table('nota_pedidos')
+        ->join('customers', 'customers.id', '=', 'nota_pedidos.customer_id')
+        ->join('users', 'users.id', '=', 'nota_pedidos.user_id')
+        ->select('customers.nameCustomer', 'nota_pedidos.id','users.name','nota_pedidos.estadoNotaPedido','nota_pedidos.total')
+        ->get();
+        return view('connotped')->with(compact('notapedidos'));
+        */
+     }
     public function show($id)
     {
         //
