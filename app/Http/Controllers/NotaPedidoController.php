@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\NotaPedido;
+use App\Customer;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -66,32 +67,38 @@ class NotaPedidoController extends Controller
      */
     public function store(Request $request)
     {
+        $data1=[];
         $data1 = $request->except('_token');
 
         
         if (!$request->session()->has('nrodoccli')) {
             \Session::flash('error','No ha seleccionado el cliente');
         }
-
         else{
             \Session::flash('success','Registro Correcto');
         }
+        // Datos de cabecera de nota de pedido
         $this->user =  \Auth::user();
         $user_id=$this->user->id;
         $fecha_emision = new \DateTime();
-        //$user_id = array(['user_id' => $this->user->id]);
-         $data2=array_add($data1, 'fecha_emision', $fecha_emision->format('d-m-Y H:i:s'));
+
+        $nrodoc= \Session::get('nrodoccli');
+        $customer_id =  DB::table('customers')
+                            ->select('customers.id')
+                            ->where('nrodoc','=',"$nrodoc")
+                            ->first();
+
+         $data2=array_add($data1, 'fecha_emision', $fecha_emision->format('Y-m-d H:i:s'));
          $data3=array_add($data2, 'user_id', $this->user->id);
-        //NotaPedido::create($data);
+         $data4=array_add($data3, 'customer_id', $customer_id->id);
+         $data=array_add($data4, 'estadoNotaPedido', 1);
 
-        // protected $fillable = ['id','cliente_id',
-       // 'fecha_emision','igv',
-         //'total','estadoNotaPedido'];
+         //Comando que ejecuta el insert en tabla nota_pedidos
+        NotaPedido::create($data);
 
-       // return redirect('/registrarNotaPedido');
+    
+        return redirect('/registrarNotaPedido');
         
-        
-        return $data3;
     }
 
     /**

@@ -14,10 +14,10 @@
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label " >Número de Documento</label>
                                   @if(Session::has('nrodoccli'))
-                                    <input type="text" class="form-control textform"readonly name="customer_id" readonly value="{{$nrodoccliente}}" >
+                                    <input type="text" class="form-control textform" readonly value="{{$nrodoccliente}}" >
       
                                   @else
-                                    <input type="text" class="form-control textform" readonly name="customer_id" >
+                                    <input type="text" class="form-control textform" readonly >
                                   @endif
                                 </div>
 
@@ -108,9 +108,9 @@
                                               <td>
                                                 @if ($transporte==1)
                                                   30.00
-                                                  <input type="number" readonly size="8"  id="transporte" value="30.00">
+                                                  <input type="number" readonly size="8"  name="transporte" value="30.00">
                                                 @else
-                                                  <input type="number" readonly size="8" id="transporte" value="30.00">
+                                                  <input type="number" readonly size="8" name="transporte" value="0.00">
                                                 @endif
                                               </td>                                             
                                       </tr>
