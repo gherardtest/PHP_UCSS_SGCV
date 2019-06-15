@@ -25,3 +25,33 @@ PLAN DE PRUEBAS DE SISTEMAS:
 Autor: quien define el documento
 Nombre del Proyecto: Implementación de un sistema de gestión de ventas, compras y transporte
 Analista de Calidad: ¿Quién lo va a ejecutar?
+-----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
