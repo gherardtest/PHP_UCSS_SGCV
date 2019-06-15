@@ -76,9 +76,7 @@
                                               <button for="" type="submit" name="nrodoccliente" value="{{$customer->nrodoc}}" class="btn btn-primary btn-sm">Seleccionar</button>
                                              
                                           </td>
-                                          {{Form::text("customerid", old("customerid") ? old("customerid") : (!empty($customer) ? $customer->id: null),
-                                              [ "class" => "control-label inputNoBorder", "readonly" =>"true","display" =>"none"  ])
-                                              }}
+
                                           <td align = "center"  value="{{$customer->nrodoc}}">
                                             {{$customer->nrodoc}}</td>
                                           <td >

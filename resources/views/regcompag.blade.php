@@ -150,8 +150,7 @@
                            
                                 <label for="street1_id" class="control-label" >Vuelto</label>
                                 <input  type="text" class="form-control textform" id="vuelto" name="Vuelto"  value="">
-                                <span id="error" class="text-danger">xzcxzcz</span>
-                                
+                                                                
                         </div>
                         
                     </div>
