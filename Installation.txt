@@ -19,3 +19,9 @@
 Hecho por: Gherard Chipana Quiñones
 
 */
+
+*/ Comandos por si hay errores
+Antes de migrar los seed, ingresar el siguiente comando:
+composer dump-autoload
+
+/*
