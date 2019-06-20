@@ -1,0 +1,12 @@
+Plan de pruebas
+- Definir las variantes de interacción en la pantalla.
+- Las variantes se dan entre cada uno de los valores que se ingresan en los controles de las interfaces del sistema
+- El sistema debe estar versionado
+- Se debe rellenar el formulario de plan de pruebas indicando la version, autor, algun revisor, etc
+- La aplicacion se debe probar chrome, firefox e internet explorer ( si funciona)
+- 
+
+Observaciones Prof. Quito
+- Agregar vendedor en registrar nota de pedido
+- Agreagar tipo documento en buscar cñliente y reg nota pedido
+- 
