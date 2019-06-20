@@ -66,12 +66,12 @@
 
                           <div class="form-group col-md-12">
                             <div class="col-md-12">
-                              <table class="table table-bordered">
+                              <table class="table table-bordered" id="tablaDetalle">
                                   <thead>
                                       <tr class="bg-primary">
-                                      <th scope="col">Item</th>
+                                      {{-- <th scope="col">Item</th> --}}
                                       <th scope="col">Cod. prod</th>
-                                      <th scope="col">Desc. Prod</th>
+                                      <th scope="col" colspan="2">Desc. Prod</th>
                                       <th scope="col">Cantidad</th>
                                       <th scope="col">Precio</th>
                                       <th scope="col">Subtotal</th>
@@ -80,23 +80,50 @@
                                   <tbody>
                                       <?php $i=0;?>
                                     @foreach ($detalleNota as $detalle)
-
-                                    <?php $i++ ?>
+                                    {{ Form::open(array('action' => 'DetalleNotaPedidoController@actualizarDetalle', 'method' => 'POST' )) }}
+                                     <?php $i++ ?> 
                                       <tr>
+                                     {{-- <td scope="row">{{$i}}</td> --}}
+                                      <td>
+                                          {{Form::text("product_id", old("product_id") ? old("product_id") : (!empty($detalle) ? $detalle['product_id']: null),
+                                            [ "class" => "control-label inputNoBorder", "readonly" =>"true" ])
+                                            }} 
+                                        </td>
+                                      <td  colspan="2" class="size">{{$detalle['product_name']}}</td>
 
-                                     <th scope="row">{{$i}}</th>
-                                      <td>{{$detalle['product_id']}}</td>
-                                      <td>{{$detalle['product_name']}}</td>
-
-                                      <td width="5">
+                                      <td >                                   
+                                        <div class="row ">
+                                          <div class="col-md-12">
+                                                  <input type="number" min="1" maxlength="6" size="10"
+                                                  onchange="calculo(this.value, {{$detalle['product_price']}},total{{$detalle['product_id']}},totalN);" 
+                                                  class="form-control " 
+                                                  name="cantidad"
+                                                  value="{{$detalle['product_cantidad']}}" 
+                                                  id="cantidad$detalle['product_id']">
+                                         </div>
+                                         
+                                           <div class="col-md-3">
+                                              {{ Form::button('<i class="glyphicon glyphicon-refresh"></i>', ['type' => 'submit', 'class' => 'btn btn-warning btn-sm'] )  }}
+                                             
+                                          </div>
+                                        </div>
+                                        {{-- <p class="text-danger">No se puede </p> --}}
                                       
-                                      <input type="number" min="1" onchange="calculo(this.value, {{$detalle['product_price']}},total{{$detalle['product_id']}},totalN);" class="input-group input-group-sm mb-3 " value="{{$detalle['product_cantidad']}}" id="cantidad$detalle['product_id']"  placeholder="0">
-                                    
+                                      
                                       </td>
-                                      <td ><input type="text" readonly id="precio{{$detalle['product_id']}}" value="{{$detalle['product_price']}}"/></td>
-                                      <td><input type="text" readonly size="8"  id="total{{$detalle['product_id']}}" value="{{$detalle['product_price']}}"></td>
-                                       
+                                      <td > 
+                                        <div class="">
+                                        <input type="text" class="form-control"  maxlength="6" size="6" readonly id="precio{{$detalle['product_id']}}" value="{{$detalle['product_price']}}"/>
+                                        </div>
+                                      </td>
+                                      <td>
+                                          <div class="">
+                                        <input type="text"  class="form-control subtotal" maxlength="6"  readonly size="6"  id="total{{$detalle['product_id']}}" value="{{$detalle['product_price']}}">
+                                          </div>
+                                      </td>
+                                      
                                     </tr>   
+                                    {!! Form::close() !!}
                                     @endforeach  
  
                                       <tr>
@@ -121,7 +148,7 @@
                                               <td></td>
                                               <td></td>
                                               <td class="">IGV</td>
-                                              <td><input type="number" readonly size="8" name="igv" id="totaligv" value="1.26"></td>                                             
+                                              <td><input type="number" readonly size="8" name="igv" id="totaligv" class="igv" value="1.26"></td>                                             
                                       </tr>
                                       <tr>
                                               <th ></th>
@@ -129,7 +156,7 @@
                                               <td></td>
                                               <td></td>    
                                               <td id="totalN" class="bg-info">Total</td>
-                                              <td><input type="number" readonly size="8" name="total" id="totalNota" value="7.00"></td>                                             
+                                              <td><input type="number" readonly size="8" class="total" name="total" id="totalnota" value="0.00"></td>                                             
                                       </tr>
 
                                   </tbody>

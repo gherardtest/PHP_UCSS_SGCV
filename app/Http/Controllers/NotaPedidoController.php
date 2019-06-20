@@ -100,6 +100,7 @@ class NotaPedidoController extends Controller
         return redirect('/registrarNotaPedido');
         
     }
+    
 
     /**
      * Display the specified resource.

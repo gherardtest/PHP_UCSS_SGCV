@@ -36,6 +36,7 @@ class ProductoController extends Controller
         //return $cart;
      
     }
+    
     /**
      * Show the form for creating a new resource.
      *

@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\App;
 
 Route::get('/', function () {
     return view('welcome');
@@ -56,7 +57,9 @@ Route::get('/consultarCliente', 'CustomerController@index');
 ////Consultar Cliente
 Route::post('/consultarCliente', 'CustomerController@show');
 
-
+Route::bind('Producto', function($slug){
+    return App\Producto::where('slug',$slug)->first();
+});
 ////Consultar Producto
 Route::get('/consultarProducto', 'ProductoController@index');
 ////Registrar Nota de Pedido
@@ -65,6 +68,7 @@ Route::post('/insertarNotaPedido','NotaPedidoController@store' );
 
 //Agregar producto a detalle Nota pedido
 Route::post('/addItem','DetalleNotaPedidoController@agregarProducto');
+Route::post('/updItem','DetalleNotaPedidoController@actualizarDetalle');
 
 // function () { return view('regnotped');}
 ////Registrar Orden de Transporte
