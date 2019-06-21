@@ -20,7 +20,13 @@ class DetalleNotaPedidoController extends Controller
         $cantidad=$request->cantidad;
         $productoid=$request->product_id;
 
-        
+        $detalleNota=\Session::get('detalleNota');
+
+        $request->session()->forget('detalleNota.1');
+
+        // or use global helper
+       // session()->forget('abc.xyz.124');
+/*
         $i = 0;
         foreach(\Session::get('detalleNota') as $item) {
            
@@ -34,7 +40,7 @@ class DetalleNotaPedidoController extends Controller
             }
             $i++;
         }
-       
+  */     
        // dd(Session::get('detalleNota'));
         return \Session::get('detalleNota');
     }

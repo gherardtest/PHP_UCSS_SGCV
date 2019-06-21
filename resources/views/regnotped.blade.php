@@ -15,7 +15,7 @@
                                   <label for="street1_id" class="control-label " >Número de Documento</label>
                                   @if(Session::has('nrodoccli'))
                                     <input type="text" class="form-control textform" readonly value="{{$nrodoccliente}}" >
-      
+    
                                   @else
                                     <input type="text" class="form-control textform" readonly >
                                   @endif
@@ -78,12 +78,13 @@
                                       </tr>
                                   </thead>
                                   <tbody>
-                                      <?php $i=0;?>
+                                      <tr></tr>
                                     @foreach ($detalleNota as $detalle)
-                                    {{ Form::open(array('action' => 'DetalleNotaPedidoController@actualizarDetalle', 'method' => 'POST' )) }}
-                                     <?php $i++ ?> 
+                                   
+                                     
                                       <tr>
-                                     {{-- <td scope="row">{{$i}}</td> --}}
+                                      {{ Form::open(array('action' => 'DetalleNotaPedidoController@actualizarDetalle', 'method' => 'POST' )) }}
+                                     
                                       <td>
                                           {{Form::text("product_id", old("product_id") ? old("product_id") : (!empty($detalle) ? $detalle['product_id']: null),
                                             [ "class" => "control-label inputNoBorder", "readonly" =>"true" ])
@@ -121,9 +122,9 @@
                                         <input type="text"  class="form-control subtotal" maxlength="6"  readonly size="6"  id="total{{$detalle['product_id']}}" value="{{$detalle['product_price']}}">
                                           </div>
                                       </td>
-                                      
+                                      {!! Form::close() !!}
                                     </tr>   
-                                    {!! Form::close() !!}
+                                    
                                     @endforeach  
  
                                       <tr>
