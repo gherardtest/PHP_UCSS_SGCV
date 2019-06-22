@@ -81,10 +81,15 @@ Diagrama de Despliegue (Restaurante Ratatouille)
 5. Relación entre los entornos de ejecución
     Entorno de IBM jalará de Entorno BD 
     Nombre: ODBC
-	
+
 -----------------------------------------------------------------
 
+Examen Final Taller:
 
+Teoría
+Modelo de Datos
+Modelo Entidad Relación (Aulas, Cursos)
+Diagrama de Despliegue
 
 
 
