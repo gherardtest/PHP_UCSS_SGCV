@@ -27,6 +27,74 @@ Nombre del Proyecto: Implementación de un sistema de gestión de ventas, compra
 Analista de Calidad: ¿Quién lo va a ejecutar?
 -----------------------------------------------------------------------------
 
+Gestión de Configuración del Software:
+Gestión de Cambios.
+-----------------------------------------------------
+Diagrama de Despliegue (Restaurante Ratatouille)
+
+1. Identificación de nodos físicos
+	Computadora 1:
+		Estereotipo: PC Cliente
+		Nombre: 150.200.21.54 Cajera
+	Computadora 2:
+		Estereotipo: PC Cliente
+		Nombre: 150.200.45.72 Mozos
+	Computadora 3:
+		Estereotipo: PC Cliente
+		Nombre: 150.200.21.45 Comensal
+	Servidor IBM
+		Estereotipo: Server
+		Nombre: IBM Power S814
+	Servidor BD
+		Estereotipo: Server
+		Nombre: SUN Fire X4600
+	Impresora HP
+		Estereotipo: Device
+		Nombre: HP Laser Jet Pro 8710
+	Switch
+		Estereotipo: Device
+		Nombre: Switch
+
+2. Identificación de entornos de ejecución
+	Servidor IBM
+		Estereotipo: Servidor de Aplicaciones
+		Nombre: Web Logic 12.1
+	Servidor BD
+		Estereotipo: Servidor de Base de Datos
+		Nombre: SQLServer 13.0
+
+3. Identificación de Los componentes
+    Computadora 1:
+		Componente: Capa Presentación
+	Computadora 2:		
+		Componente: Capa Presentación
+	Computadora 3:
+		Componente: Capa Presentación
+	Servidor IBM
+		Componente: Capa Negocio
+        Componente: Capa Datos
+
+4. Relación entre Switch y nodos.
+    Computadora 1, Computadora 2, Computador 3 al Switch y la Impresora
+    Nombre: TCP/IP
+
+5. Relación entre los entornos de ejecución
+    Entorno de IBM jalará de Entorno BD 
+    Nombre: ODBC
+-----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
