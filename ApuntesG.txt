@@ -81,6 +81,7 @@ Diagrama de Despliegue (Restaurante Ratatouille)
 5. Relación entre los entornos de ejecución
     Entorno de IBM jalará de Entorno BD 
     Nombre: ODBC
+	
 -----------------------------------------------------------------
 
 
