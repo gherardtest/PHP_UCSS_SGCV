@@ -17,32 +17,84 @@ class DetalleNotaPedidoController extends Controller
     }
 
     public function actualizarDetalle(Request $request){
-        $cantidad=$request->cantidad;
+        $cantidadRequest=$request->cantidad;
         $productoid=$request->product_id;
 
-        $detalleNota=\Session::get('detalleNota');
-
-        $request->session()->forget('detalleNota.1');
-
-        // or use global helper
-       // session()->forget('abc.xyz.124');
-/*
+        
+        $detalle= \Session::get('detalleNota');
+        \Session::forget('detalleNota');
         $i = 0;
-        foreach(\Session::get('detalleNota') as $item) {
-           
-            if ($item['product_id'] == $productoid) { // say we  want to double the quantity for itemId 2
-                    $item['product_cantidad'] = $cantidad;
-                   // \Session::pull('product_id.'.$i);
-                    \Session::push('detalleNota', 12);
-                    //\Session::put('product_cantidad',$cantidad);
-                    //return $item['product_id'];
-                    break;
+        foreach($detalle as $item=>$value) {
+               $id = $value['product_id'] ;
+            
+                $nameProd= $value['product_name'] ;
+                $precioProd=  $value['product_price'] ;
+                $cantidad=  $value['product_cantidad'] ;
+                $unidadMedidaProd=  $value['product_unidad_medida'] ;
+
+                $producto = [
+                    'product_id' => $id,
+                    'product_name' => $nameProd,
+                    'product_price' => $precioProd,
+                    'product_unidad_medida' => $unidadMedidaProd,
+                    'product_cantidad' =>$cantidad
+                  ];
+                \Session::push('detalleNota', $producto);
+               
+            if ($value['product_id'] == $productoid) { 
+                       
+                   $request->session()->put('detalleNota.'.$item.'.product_cantidad',$cantidadRequest);
+                          
             }
             $i++;
         }
-  */     
-       // dd(Session::get('detalleNota'));
-        return \Session::get('detalleNota');
+       //-------------Actualizar totales-----------------
+       $NotaPedidocontroller=new NotaPedidoController();
+       $NotaPedidocontroller->actualizarTotales();
+       //------------------------------------------------
+        
+        return redirect('registrarNotaPedido');
+    }
+    public function eliminarDeDetalle(Request $request){
+        
+        $productoid=$request->product_id;
+
+        $detalleNota=[];
+        $detalle= \Session::get('detalleNota');
+        \Session::forget('detalleNota');
+        $i = 0;
+        foreach($detalle as $item=>$value) {
+            $id = $value['product_id'] ;
+         
+             $nameProd= $value['product_name'] ;
+             $precioProd=  $value['product_price'] ;
+             $cantidad=  $value['product_cantidad'] ;
+             $unidadMedidaProd=  $value['product_unidad_medida'] ;
+
+             $producto = [
+                 'product_id' => $id,
+                 'product_name' => $nameProd,
+                 'product_price' => $precioProd,
+                 'product_unidad_medida' => $unidadMedidaProd,
+                 'product_cantidad' =>$cantidad
+               ];
+             \Session::push('detalleNota', $producto);
+            
+         if ($value['product_id'] == $productoid) { 
+                    
+            $request->session()->forget('detalleNota.'.$i);
+                       
+         }
+         $i++;
+
+        //-------------Actualizar totales-----------------
+       $NotaPedidocontroller=new NotaPedidoController();
+       $NotaPedidocontroller->actualizarTotales();
+       //------------------------------------------------
+     }
+           
+     //return \Session::get('detalleNota');
+       return redirect('registrarNotaPedido');
     }
     /**
      * Show the form for creating a new resource.
@@ -66,6 +118,9 @@ class DetalleNotaPedidoController extends Controller
             'product_cantidad' =>1
           ];
         \Session::push('detalleNota', $producto);
+
+        
+
 
         $cart = \Session::get('detalleNota');
         return redirect('registrarNotaPedido');

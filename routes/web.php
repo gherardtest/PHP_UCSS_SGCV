@@ -69,7 +69,7 @@ Route::post('/insertarNotaPedido','NotaPedidoController@store' );
 //Agregar producto a detalle Nota pedido
 Route::post('/addItem','DetalleNotaPedidoController@agregarProducto');
 Route::post('/updItem','DetalleNotaPedidoController@actualizarDetalle');
-
+Route::post('/delItem','DetalleNotaPedidoController@eliminarDeDetalle');
 // function () { return view('regnotped');}
 ////Registrar Orden de Transporte
 Route::get('/registrarOrdenTransporte', function () { return view('regsoltra'); });

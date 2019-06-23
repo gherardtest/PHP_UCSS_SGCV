@@ -6,7 +6,7 @@
 
                 <div class="panel-body">
                     
-                    {{ Form::open(array('action' => 'NotaPedidoController@store', 'method' => 'POST' )) }}
+                    {{ Form::open(array('action' => 'NotaPedidoController@store', 'method' => 'POST','id'=>'RegNotaPedido' )) }}
                                     
                     {{ csrf_field() }}
         
@@ -63,6 +63,7 @@
                               </a>
                             </div>
                           </div>
+                          {!! Form::close() !!}
 
                           <div class="form-group col-md-12">
                             <div class="col-md-12">
@@ -70,19 +71,29 @@
                                   <thead>
                                       <tr class="bg-primary">
                                       {{-- <th scope="col">Item</th> --}}
+                                      <th scope="col"></th>
                                       <th scope="col">Cod. prod</th>
-                                      <th scope="col" colspan="2">Desc. Prod</th>
-                                      <th scope="col">Cantidad</th>
+                                      <th scope="col" >Desc. Prod</th>
+                                      <th scope="col" colspan="2">Cantidad</th>
                                       <th scope="col">Precio</th>
                                       <th scope="col">Subtotal</th>
+
                                       </tr>
                                   </thead>
                                   <tbody>
-                                      <tr></tr>
+
+                                
                                     @foreach ($detalleNota as $detalle)
                                    
-                                     
+                                    
                                       <tr>
+                                          {{ Form::open(array('action' => 'DetalleNotaPedidoController@eliminarDeDetalle', 'method' => 'POST' )) }}
+                                          <td>
+                                            {{ Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'name'=>'product_id','class' => 'btn btn-danger btn-sm','value'=>$detalle['product_id']] )  }}
+                                          </td>
+                                        
+                                          {!! Form::close() !!}
+                                          
                                       {{ Form::open(array('action' => 'DetalleNotaPedidoController@actualizarDetalle', 'method' => 'POST' )) }}
                                      
                                       <td>
@@ -90,14 +101,14 @@
                                             [ "class" => "control-label inputNoBorder", "readonly" =>"true" ])
                                             }} 
                                         </td>
-                                      <td  colspan="2" class="size">{{$detalle['product_name']}}</td>
+                                      <td   class="size">{{$detalle['product_name']}}</td>
 
-                                      <td >                                   
+                                      <td colspan="2">                                   
                                         <div class="row ">
-                                          <div class="col-md-12">
+                                          <div class="col-md-7">
                                                   <input type="number" min="1" maxlength="6" size="10"
                                                   onchange="calculo(this.value, {{$detalle['product_price']}},total{{$detalle['product_id']}},totalN);" 
-                                                  class="form-control " 
+                                                  class="form-control" 
                                                   name="cantidad"
                                                   value="{{$detalle['product_cantidad']}}" 
                                                   id="cantidad$detalle['product_id']">
@@ -132,6 +143,7 @@
                                               <td></td>
                                               <td></td>
                                               <td></td>
+                                              <td></td>
                                               <td class="">Transporte</td>
                                               <td>
                                                 @if ($transporte==1)
@@ -144,20 +156,22 @@
                                       </tr>
                                     
                                       <tr>
-                                              <th ></th>
+                                              <th></th>
+                                              <td></td>
                                               <td></td>
                                               <td></td>
                                               <td></td>
                                               <td class="">IGV</td>
-                                              <td><input type="number" readonly size="8" name="igv" id="totaligv" class="igv" value="1.26"></td>                                             
+                                              <td><input type="number" readonly size="8" name="igv" id="totaligv" class="igv" value="{{$totaligv}}"></td>                                             
                                       </tr>
                                       <tr>
                                               <th ></th>
                                               <td></td>
                                               <td></td>
+                                              <td></td>
                                               <td></td>    
                                               <td id="totalN" class="bg-info">Total</td>
-                                              <td><input type="number" readonly size="8" class="total" name="total" id="totalnota" value="0.00"></td>                                             
+                                              <td><input type="number" readonly size="8" class="total" name="total" id="totalnota" value="{{$total}}"></td>                                             
                                       </tr>
 
                                   </tbody>
@@ -167,13 +181,12 @@
                           
                           <div class="col-md-6">
                               <label for="" class="control-label ">&nbsp;</label>
-                              <button for="" type="submit" class="btn btn-primary"> Registrar Nota de Pedido</button>
+                              <button for="" type="submit" form="RegNotaPedido" class="btn btn-primary"> Registrar Nota de Pedido</button>
                                 
                            </div>
                           
 
-                           {!! Form::close() !!}
-
+                         
                 </div>
             </div>
 

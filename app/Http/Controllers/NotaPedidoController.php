@@ -8,6 +8,7 @@ use App\NotaPedido;
 use App\Customer;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Session\Session;
+use App\DetalleNotaPedido;
 
 class NotaPedidoController extends Controller
 {
@@ -16,6 +17,20 @@ class NotaPedidoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function actualizarTotales(){
+         //Actualizar total e igv
+        $total=0;
+        $totaligv=0;
+        foreach(\Session::get('detalleNota') as $item) {
+           
+            $total=$total+($item['product_cantidad']*$item['product_price']);       
+        }
+        $totaligv=$total*0.18;
+        \Session::put('total',$total);
+        \Session::put('igv',$totaligv);
+
+     }
     public function index(Request $request)
     {
        
@@ -23,19 +38,29 @@ class NotaPedidoController extends Controller
         $dni = $inputs['dni'];
         */
 
-
+       
         if(!\Session::has('detalleNota')) {
             \Session::put('detalleNota',array());
-        }
 
+
+        }
+        $total=0;
+        $totaligv=0;
+        foreach(\Session::get('detalleNota') as $item) {
+           
+            $total=$total+($item['product_cantidad']*$item['product_price']);       
+        }
+        $totaligv=$total*0.18;
 
         if(!\Session::has('detalleTransporte')) {
             \Session::put('detalleTransporte',array());
         }
         if ($request->session()->has('transporte')) {
             $transporte = 1; 
+            
         }else{
             $transporte =0;
+           
         }
         $detalleNota = \Session::get('detalleNota'); 
     
@@ -46,7 +71,7 @@ class NotaPedidoController extends Controller
             $nrodoccliente = ' ';
             $nameCustomer = ' ';
         }  
-        return view('regnotped')->with(compact('nrodoccliente','nameCustomer','detalleNota','transporte'));
+        return view('regnotped')->with(compact('nrodoccliente','nameCustomer','detalleNota','transporte','total','totaligv'));
     }
 
     /**
@@ -70,37 +95,67 @@ class NotaPedidoController extends Controller
         $data1=[];
         $data1 = $request->except('_token');
 
-        
+        $total=0;
+        $totaligv=0;
         if (!$request->session()->has('nrodoccli')) {
             \Session::flash('error','No ha seleccionado el cliente');
             
         }
         else{
+            // Datos de cabecera de nota de pedido
             \Session::flash('success','Registro Correcto');
             $this->user =  \Auth::user();
             $user_id=$this->user->id;
             $fecha_emision = new \DateTime();
 
             $nrodoc= \Session::get('nrodoccli');
+            $igv= \Session::get('igv');
+            if ($request->session()->has('transporte')) {
+                $transporte = 30.00; 
+                
+            }else{
+                $transporte =0.00;
+               
+            }
             $customer_id =  DB::table('customers')
                                 ->select('customers.id')
                                 ->where('nrodoc','=',"$nrodoc")
                                 ->first();
 
-            $data2=array_add($data1, 'fecha_emision', $fecha_emision->format('Y-m-d H:i:s'));
-            $data3=array_add($data2, 'user_id', $this->user->id);
-            $data4=array_add($data3, 'customer_id', $customer_id->id);
-            $data=array_add($data4, 'estadoNotaPedido', 1);
-            NotaPedido::create($data);
+            $data=array_add($data1, 'fecha_emision', $fecha_emision->format('Y-m-d H:i:s'));
+            $data=array_add($data, 'user_id', $this->user->id);
+            $data=array_add($data, 'customer_id', $customer_id->id);
+            $data=array_add($data, 'estadoNotaPedido', 1);
+            $data=array_add($data, 'igv', \Session::get('igv'));
+            $data=array_add($data, 'total', \Session::get('total'));
+            $data=array_add($data, 'transporte', $transporte);
+            //Comando que ejecuta el insert en tabla nota_pedidos
+           $notapedido= NotaPedido::create($data);
+
+            // Datos de detalle de nota de pedido
+           
+            $data=[];
+            foreach(\Session::get('detalleNota') as $item) {
+                
+                $subtotal=$item['product_cantidad']*$item['product_price'];     
+               
+                $data['producto_id']=$item['product_id'];
+                $data['nota_pedido_id']=$notapedido->id; 
+                $data['cantidad']=$item['product_cantidad'];
+                $data['subtotal']=$subtotal;
+                DetalleNotaPedido::create($data);
+            }
+            $totaligv=$total*0.18;
+
+            //Comando que ejecuta el insert en tabla nota_pedidos
+
+            
+
         }
-        // Datos de cabecera de nota de pedido
-        
-
-         //Comando que ejecuta el insert en tabla nota_pedidos
-        
-
+       
     
         return redirect('/registrarNotaPedido');
+      // return redirect('/registrarNotaPedido');
         
     }
     
