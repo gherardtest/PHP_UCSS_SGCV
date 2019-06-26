@@ -16,7 +16,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/consultarRequerimiento', 'HomeController@conreq');
 
 ////Consultar Proveedor
-Route::get('/consultarProveedor', function () { return view('conprov'); });
+Route::get('/registrarProveedor', function () { return view('regprov'); });
 ////Registrar Solicitud de Proforma
 Route::get('/registroSolicitudProforma', function () { return view('regsolpro'); });
 

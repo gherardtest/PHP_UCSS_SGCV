@@ -8,9 +8,9 @@
           <!-- 1. COMPRAS -->
           <!-- JEFE DE COMPRAS -->
           @if (auth()->user()->role==1)
-          <li @if(request()->is('consultarRequerimiento')) class="active" @endif><a href="/consultarRequerimiento">Consultar Requerimientos</a></li>
-          <li @if(request()->is('consultarProveedor')) class="active" @endif><a href="/consultarProveedor">Consultar Proveedor</a></li>
-          <li @if(request()->is('registroSolicitudProforma')) class="active" @endif><a href="/registroSolicitudProforma">Registrar Solicitud de Proforma</a></li>
+          <li @if(request()->is('consultarRequerimiento')) class="active" @endif><a href="/consultarRequerimiento">Evaluar Requerimientos</a></li>
+          <li @if(request()->is('registrarProveedor')) class="active" @endif><a href="/registrarProveedor">Registrar Proveedor</a></li>
+          <!--<li @if(request()->is('registroSolicitudProforma')) class="active" @endif><a href="/registroSolicitudProforma">Registrar Solicitud de Proforma</a></li> -->
           @endif
 
           @if (auth()->user()->role==2)
