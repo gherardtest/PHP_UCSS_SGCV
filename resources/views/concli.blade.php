@@ -65,13 +65,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if(count($acustomers)>0) @foreach ($acustomers as $customer)
+                    @if(count($acustomers)>0)
+                     @foreach ($acustomers as $customer)
                     <tr>
                         {{ Form::open(array('action' => 'CustomerController@seleccionarCliente', 'method' => 'POST' )) }}
                         <td align="center">
-                            {{-- {{ route ('registrarNotaPedido',[$customer->dni])}}
-                            --}}
-
+                       
                             <button
                                 for=""
                                 type="submit"
@@ -80,9 +79,7 @@
                                 class="btn btn-primary btn-sm">Seleccionar</button>
 
                         </td>
-                        {{Form::text("customerid", old("customerid") ? old("customerid") : (!empty($customer) ? $customer->id: null),
-                                              [ "class" => "control-label inputNoBorder", "readonly" =>"true","display" =>"none"  ])
-                                              }}
+                      
                         <td align="center" value="{{$customer->nrodoc}}">
                             {{$customer->nrodoc}}</td>
                         <td>
@@ -94,7 +91,8 @@
                         <td>{{$customer->phone}}</td>
                         {!! Form::close() !!}
                     </tr>
-                    @endforeach @else
+                    @endforeach 
+                    @else
                     <div class="alert alert-dismissable alert-warning">
                         <button type="button" class="close" data-dismiss="alert">×</button>
                         <h4>Mensaje del sistema!</h4>

@@ -19,14 +19,14 @@ class ComprobantePagoController extends Controller
     {
  
         if ($request->session()->has('nota_pedidos_id')) {
+           
             $id = $request->session()->get('nota_pedidos_id');
             $nota_pedido_name = $request->session()->get('nota_pedidos_name');
-
-            $nota_pedido_id = $id;
+            $nota_pedido_id=$id;
             $cabecera_nota_pedido = [];
             $detalle_nota_pedido = [];
            
-            $cabecera_nota_pedido = NotaPedido::all();
+            $cabecera_nota_pedido = NotaPedido:: where('id',"$id")->get();
             $detalle_nota_pedido = DB::table('nota_pedidos_detalles')
             ->join('productos', 'productos.id', '=', 'nota_pedidos_detalles.producto_id')
             ->select('productos.descripcion', 'nota_pedidos_detalles.cantidad','productos.precio','nota_pedidos_detalles.subtotal')
@@ -42,8 +42,8 @@ class ComprobantePagoController extends Controller
 
 
         
-     
-       return view('regcompag')->with(compact('detalle_nota_pedido','cabecera_nota_pedido','nota_pedido_id','nota_pedido_name'));
+        //return $cabecera_nota_pedido[0]->total;
+        return view('regcompag')->with(compact('detalle_nota_pedido','cabecera_nota_pedido','nota_pedido_id','nota_pedido_name'));
        //return  $nota_pedido_id;
     }
 
@@ -87,14 +87,18 @@ class ComprobantePagoController extends Controller
         if ($request->session()->has('nota_pedidos_id')) {
             $nota_pedido_id = $request->session()->get('nota_pedidos_id');
             $id = $nota_pedido_id[0];
+            $cabecera_nota_pedido = NotaPedido:: where('id',"$id");
+        }else{
+            
         }
-        $cabecera_nota_pedido = NotaPedido:: where('id','$id');
+       
         $detalle_nota_pedido = DB::table('nota_pedidos_detalles')
             ->join('productos', 'productos.id', '=', 'nota_pedidos_detalles.producto_id')
             ->select('productos.descripcion', 'nota_pedidos_detalles.cantidad','productos.precio','nota_pedidos_detalles.subtotal')
             ->where('nota_pedidos_detalles.nota_pedido_id','$id')
             ->get();
-        return view('regcompag')->with(compact('detalle_nota_pedido'));
+            return $cabecera_nota_pedido;
+       // return view('regcompag')->with(compact('detalle_nota_pedido'));
         
     }
 

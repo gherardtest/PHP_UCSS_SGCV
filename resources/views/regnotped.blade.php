@@ -125,12 +125,12 @@
                                       </td>
                                       <td > 
                                         <div class="">
-                                        <input type="text" class="form-control"  maxlength="6" size="6" readonly id="precio{{$detalle['product_id']}}" value="{{$detalle['product_price']}}"/>
+                                        <input type="text" class="form-control precio"  maxlength="6" size="6" readonly id="precio{{$detalle['product_id']}}" value="{{$detalle['product_price']}}"/>
                                         </div>
                                       </td>
                                       <td>
                                           <div class="">
-                                        <input type="text"  class="form-control subtotal" maxlength="6"  readonly size="6"  id="total{{$detalle['product_id']}}" value="{{$detalle['product_price']}}">
+                                        <input type="text"  class="form-control subtotal" maxlength="6"  readonly size="6"  id="total{{$detalle['product_id']}}" value="{{$detalle['product_price']*$detalle['product_cantidad']}}">
                                           </div>
                                       </td>
                                       {!! Form::close() !!}
@@ -147,10 +147,10 @@
                                               <td class="">Transporte</td>
                                               <td>
                                                 @if ($transporte==1)
-                                                  30.00
-                                                  <input type="number" readonly size="8"  name="transporte" value="30.00">
+                                                
+                                                  <input type="number" id="transporte" readonly size="8"  name="transporte" value="30.00">
                                                 @else
-                                                  <input type="number" readonly size="8" name="transporte" value="0.00">
+                                                  <input type="number" id="transporte" readonly size="8" name="transporte" value="0.00">
                                                 @endif
                                               </td>                                             
                                       </tr>

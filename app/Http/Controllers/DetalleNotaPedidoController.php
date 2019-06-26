@@ -20,33 +20,35 @@ class DetalleNotaPedidoController extends Controller
         $cantidadRequest=$request->cantidad;
         $productoid=$request->product_id;
 
-        
-        $detalle= \Session::get('detalleNota');
-        \Session::forget('detalleNota');
-        $i = 0;
-        foreach($detalle as $item=>$value) {
-               $id = $value['product_id'] ;
-            
-                $nameProd= $value['product_name'] ;
-                $precioProd=  $value['product_price'] ;
-                $cantidad=  $value['product_cantidad'] ;
-                $unidadMedidaProd=  $value['product_unidad_medida'] ;
+        if ($cantidadRequest<=0) {
+            \Session::flash('error','La cantidad no puede ser menor a 1');     
+        }else{
+            $detalle= \Session::get('detalleNota');
+            \Session::forget('detalleNota');
+            $i = 0;
+            foreach($detalle as $item=>$value) {
+                $id = $value['product_id'] ;
+                
+                    $nameProd= $value['product_name'] ;
+                    $precioProd=  $value['product_price'] ;
+                    $cantidad=  $value['product_cantidad'] ;
+                    $unidadMedidaProd=  $value['product_unidad_medida'] ;
 
-                $producto = [
-                    'product_id' => $id,
-                    'product_name' => $nameProd,
-                    'product_price' => $precioProd,
-                    'product_unidad_medida' => $unidadMedidaProd,
-                    'product_cantidad' =>$cantidad
-                  ];
-                \Session::push('detalleNota', $producto);
-               
-            if ($value['product_id'] == $productoid) { 
-                       
-                   $request->session()->put('detalleNota.'.$item.'.product_cantidad',$cantidadRequest);
-                          
+                    $producto = [
+                        'product_id' => $id,
+                        'product_name' => $nameProd,
+                        'product_price' => $precioProd,
+                        'product_unidad_medida' => $unidadMedidaProd,
+                        'product_cantidad' =>$cantidad
+                    ];
+                    \Session::push('detalleNota', $producto);
+                
+                if ($value['product_id'] == $productoid) { 
+                    $request->session()->put('detalleNota.'.$item.'.product_cantidad',$cantidadRequest);
+                            
+                }
+                $i++;
             }
-            $i++;
         }
        //-------------Actualizar totales-----------------
        $NotaPedidocontroller=new NotaPedidoController();
@@ -117,8 +119,12 @@ class DetalleNotaPedidoController extends Controller
             'product_unidad_medida' => $unidadMedidaProd,
             'product_cantidad' =>1
           ];
+        
         \Session::push('detalleNota', $producto);
-
+ //-------------Actualizar totales-----------------
+ $NotaPedidocontroller=new NotaPedidoController();
+ $NotaPedidocontroller->actualizarTotales();
+ //------------------------------------------------
         
 
 

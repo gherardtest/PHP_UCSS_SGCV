@@ -26,6 +26,7 @@ class CustomerController extends Controller
 
         //$acustomers = Customer::paginate(10);
         return view('concli')->with(compact('acustomers'));
+       
     }
 
     /**

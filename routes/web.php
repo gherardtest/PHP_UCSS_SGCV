@@ -74,11 +74,13 @@ Route::post('/delItem','DetalleNotaPedidoController@eliminarDeDetalle');
 ////Registrar Orden de Transporte
 Route::get('/registrarOrdenTransporte', function () { return view('regsoltra'); });
 
+Route::post('/insertarOrdenTransporte', 'OrdenTransporteController@store');
+
 
 ////Buscar Estado Envío
-Route::get('/buscarEstadoEnvio', function () { return view('buscestenv'); });
+Route::get('/buscarEstadoEnvio','OrdenTransporteController@index');
 //Buscar orden de transporte
-Route::post('/buscarOrdenTransporte', function () { return view('buscestenv'); });
+Route::post('/buscarEstadoEnvio', 'OrdenTransporteController@buscarOrdenTransporte');
 
 
 //CAJERO

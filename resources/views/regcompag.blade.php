@@ -119,7 +119,7 @@
                                     <td></td>
                                     <td></td>
                                     <td class="bg-info">Total</td>
-                                    <td>{{$cabecera_nota_pedido[0]->total}}</td>                                             
+                                    <td id="totalapagar">{{$cabecera_nota_pedido[0]->total}}</td>                                             
                             </tr>
 
                             @endif
@@ -129,7 +129,7 @@
                       
                      
                   </div>
-                 
+                  @if(count($cabecera_nota_pedido)>0)
                     <div class="form-group col-md-12"> 
                         <div class="col-md-6">
                             <label for="street1_id" class="control-label">&nbsp;</label>
@@ -137,7 +137,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="street1_id" class="control-label">Total Pagado</label>
-                            <input type="text" class="form-control textform" id="totalPagado" name="totalPagado"  value="">
+                            <input type="number" step="0.01" class="form-control textform" id="totalpagado"  onkeyup="calcularVuelto({{$cabecera_nota_pedido[0]->total}},this.value)" name="totalPagado"  value="0.00">
                         </div>
                     
                     </div>
@@ -149,11 +149,12 @@
                         <div class="col-md-6">
                            
                                 <label for="street1_id" class="control-label" >Vuelto</label>
-                                <input  type="text" class="form-control textform" id="vuelto" name="Vuelto"  value="">
+                                <input  type="number" readonly class="form-control textform" id="vuelto" name="Vuelto"  value="0.00">
                                                                 
                         </div>
                         
                     </div>
+                    @endif
                 
               <div class="form-group col-md-12"> <!-- Street 1 -->
 

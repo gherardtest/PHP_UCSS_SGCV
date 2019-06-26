@@ -15,6 +15,20 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Scripts -->
     <script>
+            function calcularVuelto(totalapagar,totalpagado){
+                console.log('totalpagado '+totalpagado);
+                console.log('toal apagar '+totalapagar);
+                document.getElementById("totalpagado").onchange = function(){
+                   
+                   if((totalpagado-totalapagar)>=0){
+                    document.getElementById("vuelto").value = totalpagado-totalapagar;
+                   } else{
+                    document.getElementById("vuelto").value = 0.00;
+                   }
+                   
+                }
+            }
+            
             function calculo(cantidad,precio,inputtext,totaltext){
 	
                 /* Parametros:
@@ -26,29 +40,27 @@
                 // Calculo del subtotal
                 
                 subtotal = precio*cantidad;
-                inputtext.value=subtotal;
+               // inputtext.value=subtotal;
                 console.log('precio'+precio);
                 console.log('cantidad'+cantidad);
                 console.log('subtotal'+subtotal);
-                totalN.value =  subtotal;
-
-
-
-               
-                //Actualizar el total
+                inputtext.value =  subtotal;
+     //Actualizar el total
                 // Utilizamos el eval. Ya que el valor es un texto y si lo tratamos como tal
                 // es como si estuviesemos manipulando una cadena.
                // total = eval(totaltext.value);
                //totaltext.value =  subtotal;
             }
             $(document).ready(function() {
-                $(function() {    
+                $(function() { 
+                 
+                    
                     $("#tablaDetalle").on("change", "input", function(){
                     var row = $(this).closest("tr");
-                    var cantidad = parseFloat(row.find("input:eq(2)").val());
-                    var precio = parseFloat(row.find("input:eq(3)").val());
+                    var cantidad = parseFloat(row.find("input:eq(3)").val());
+                    var precio = parseFloat(row.find("input:eq(4)").val());
                     var subtotal = parseInt(cantidad, 10) * parseFloat(precio);
-                    row.find("input:eq(4)").val(isNaN(subtotal) ? "" : subtotal.toFixed(2));
+                    row.find("input:eq(5)").val(isNaN(subtotal) ? "" : subtotal.toFixed(2));
                     console.log('cargo ');
                     var total = 0;
                     var igv =0;
@@ -58,8 +70,10 @@
                         
                         });
                         var stval = parseFloat(total);
-                        igv = 0.18 * isNaN(stval) ? 0 : stval;;
-                        $('.total').val(total.toFixed(2));
+                        igv = 0.18 * isNaN(stval) ? 0 : stval;
+                        var transporte = parseFloat($('#transporte').val());
+                        var totalneto=(total+transporte);
+                        $('.total').val(totalneto.toFixed(2));
                         $('.igv').val((igv*0.18).toFixed(2));
                     });  
                     $("#tablaDetalle").on("onload", "input", function(){
@@ -78,8 +92,10 @@
                             
                         });
                         var stval = parseFloat(total);
-                        igv = 0.18 * isNaN(stval) ? 0 : stval;;
-                        $('.total').val(total.toFixed(2));
+                        igv = 0.18 * isNaN(stval) ? 0 : stval;
+                        var transporte = parseFloat($('#transporte').val());
+                        var totalneto=total+transporte;
+                        $('.total').val(totalneto.toFixed(2));
                         $('.igv').val((igv*0.18).toFixed(2));
                     });  
                     // mueve el código del .delete-row fuera del controlador del input

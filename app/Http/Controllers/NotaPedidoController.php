@@ -9,6 +9,7 @@ use App\Customer;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Session\Session;
 use App\DetalleNotaPedido;
+use App\OrdenTransporte;
 
 class NotaPedidoController extends Controller
 {
@@ -32,36 +33,32 @@ class NotaPedidoController extends Controller
 
      }
     public function index(Request $request)
-    {
-       
-       /* $inputs=Input::all();
-        $dni = $inputs['dni'];
-        */
-
-       
+    {  
         if(!\Session::has('detalleNota')) {
             \Session::put('detalleNota',array());
-
 
         }
         $total=0;
         $totaligv=0;
+        if ($request->session()->has('transporte')) {
+            $transporte = 1; 
+            $precioTransporte=30.00;
+            
+        }else{
+            $transporte =0;
+            $precioTransporte=0.00;
+        }
         foreach(\Session::get('detalleNota') as $item) {
            
             $total=$total+($item['product_cantidad']*$item['product_price']);       
         }
+        $total = $total+$precioTransporte;
         $totaligv=$total*0.18;
 
         if(!\Session::has('detalleTransporte')) {
             \Session::put('detalleTransporte',array());
         }
-        if ($request->session()->has('transporte')) {
-            $transporte = 1; 
-            
-        }else{
-            $transporte =0;
-           
-        }
+        
         $detalleNota = \Session::get('detalleNota'); 
     
         if ($request->session()->has('nrodoccli')) {
@@ -97,26 +94,25 @@ class NotaPedidoController extends Controller
 
         $total=0;
         $totaligv=0;
+        $detalle=\Session::get('detalleNota');
         if (!$request->session()->has('nrodoccli')) {
-            \Session::flash('error','No ha seleccionado el cliente');
-            
+            \Session::flash('error','No ha seleccionado el cliente');     
+        }else if(count($detalle)==0){
+            \Session::flash('error','No ha seleccionado productos');     
         }
         else{
             // Datos de cabecera de nota de pedido
-            \Session::flash('success','Registro Correcto');
+            if ($request->session()->has('transporte')) {
+                $transporte = 30.00; 
+            }else{
+                $transporte = 0.00; 
+            }
             $this->user =  \Auth::user();
             $user_id=$this->user->id;
             $fecha_emision = new \DateTime();
 
             $nrodoc= \Session::get('nrodoccli');
-            $igv= \Session::get('igv');
-            if ($request->session()->has('transporte')) {
-                $transporte = 30.00; 
-                
-            }else{
-                $transporte =0.00;
-               
-            }
+
             $customer_id =  DB::table('customers')
                                 ->select('customers.id')
                                 ->where('nrodoc','=',"$nrodoc")
@@ -129,6 +125,7 @@ class NotaPedidoController extends Controller
             $data=array_add($data, 'igv', \Session::get('igv'));
             $data=array_add($data, 'total', \Session::get('total'));
             $data=array_add($data, 'transporte', $transporte);
+
             //Comando que ejecuta el insert en tabla nota_pedidos
            $notapedido= NotaPedido::create($data);
 
@@ -143,20 +140,48 @@ class NotaPedidoController extends Controller
                 $data['nota_pedido_id']=$notapedido->id; 
                 $data['cantidad']=$item['product_cantidad'];
                 $data['subtotal']=$subtotal;
+            //Comando que ejecuta el insert en tabla nota_pedidos
                 DetalleNotaPedido::create($data);
             }
             $totaligv=$total*0.18;
 
-            //Comando que ejecuta el insert en tabla nota_pedidos
 
+            if ($request->session()->has('transporte')) {
+                $transporte = 30.00; 
+                $datosTransporte=[];
+                $this->user =  \Auth::user();
+                $datosTransporte['user_id'] = $this->user->id;
+                $datosTransporte['customer_id'] = $customer_id->id;
+                $datosTransporte['nota_pedidos_id'] = $notapedido->id;
+                $datosTransporte['contacto_ref'] = $request->session()->get('contacto');
+                $datosTransporte['telef_contacto_ref'] = $request->session()->get('telefono_contacto');
+                $datosTransporte['fecha_envio'] = $request->session()->get('fecha_envio');
+                $datosTransporte['horario_envio'] = $request->session()->get('horario_envio');
+                $datosTransporte['direccion_envio'] = $request->session()->get('direccion_envio');
+                $datosTransporte['precio'] = 30.00;
+                $datosTransporte['estados_ot_id'] = 2;
+             
+                OrdenTransporte::create( $datosTransporte);
+                
+            }
+            //Eliminar los datos de la sesion 
+            $request->session()->forget('nrodoccli');
+            $request->session()->forget('detalleNota');
+            $request->session()->forget('igv');
+            $request->session()->forget('total');
+            //borrar datos de transporte
+            $request->session()->forget('transporte');
+            $request->session()->forget('contacto');
+            $request->session()->forget('telefono_contacto');
+            $request->session()->forget('fecha_envio');
+            $request->session()->forget('horario_envio');
+            $request->session()->forget('direccion_envio');
             
+            \Session::flash('success','Registro Correcto');
 
         }
-       
-    
+  
         return redirect('/registrarNotaPedido');
-      // return redirect('/registrarNotaPedido');
-        
     }
     
 

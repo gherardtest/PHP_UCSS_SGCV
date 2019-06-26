@@ -19,18 +19,18 @@
                               @endforeach
                           </ul>
                       </div>
-@endif
+                  @endif
               {{-- {!! Form::open(['route'=>'','method'=>'GET',]) !!} --}}
             
 
               {{-- {!! Form::close() !!}
                --}}
                         <!--Buscador-->
-                        {{ Form::open(array('action' => 'CustomerController@show', 'method' => 'POST' )) }}
+                        {{ Form::open(array('action' => 'OrdenTransporteController@buscarOrdenTransporte', 'method' => 'POST' )) }}
                         <div class="form-group col-md-12"> <!-- Tipo documento -->
                             <div class="col-md-6">
                               <label for="street1_id" class="control-label ">Número de Documento</label>
-                              <input type="text" class="form-control textform" id="nrodoc" name="nrodoc"  placeholder="Número de documento del cliente">                             
+                              <input type="text" class="form-control textform" id="nrodoc" name="nrodoccliente"  placeholder="Número de documento del cliente">                             
                             </div>
 
 
@@ -48,19 +48,30 @@
                       <table class="table table-bordered">
                           <thead >
                               <tr align = "center" class="bg-primary">
-                              <th >Cliente</th>
-                              <th >N. Pedido</th>
-                              <th >N. Transporte</th>                                                     
-                              <th scope="col">Estado</th>           
-                              
+                                  <th>Cod Ord. Trans</th> 
+                                  <th >Doc Cliente</th>
+                                  <th >Cliente</th>
+                                  <th >Direccion Envio</th>
+                                  <th >Fecha envio</th>     
+                                  <th >Estado</th>   
+                              </tr>
                           </thead>      
                           
-                          <tr >                                                                   
-                                <td >Gherard</td>    
-                                <td >1</td>
-                                <td >2</td>                                                              
-                                <td scope="col">Enviado</td>           
-                          </tr>   
+                           
+                            @if(count($OrdenesTransportes)>0)    
+                            @foreach ($OrdenesTransportes as $item)
+                            <tr >  
+                              <td >{{$item->codOrdTrans}}</td>  
+                              <td >{{$item->nrodoc}}</td>  
+                              <td >{{$item->nameCustomer}}</td>    
+                              <td >{{$item->direccion_envio}}</td>
+                              <td >{{$item->fecha_envio}}</td>                                                              
+                              <td scope="col">{{$item->descripcion}}</td> 
+                            </tr> 
+                            @endforeach  
+                            @endif                                                          
+                                         
+                           
                           
                       </table>
                       </div>           

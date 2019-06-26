@@ -17,6 +17,10 @@ class Proveedores extends Migration
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->integer('ruc');
+            $table->string('contacto');
+            $table->string('cargoContacto');
+            $table->string('telefono');
+            $table->string('direccion');
             $table->timestamps();
         });
     }
