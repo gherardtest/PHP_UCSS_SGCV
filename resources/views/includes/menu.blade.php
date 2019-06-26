@@ -20,12 +20,12 @@
           <li @if(request()->is('registrarSolicitudProforma')) class="active" @endif><a href="/registrarSolicitudProforma">Registrar Solicitud de Proforma</a></li>
           <li @if(request()->is('registrarOrdenCompra')) class="active" @endif><a href="/registrarOrdenCompra">Registrar Orden de Compra</a></li>
           @endif
-
-          @if (auth()->user()->role==3)
-          <!-- AUXILIAR DE ALMACEN -->
-          <li @if(request()->is('consultarNotaPedido')) class="active" @endif><a href="/consultarNotaPedido">Consultar Nota de Pedido</a></li>
-          <li @if(request()->is('registrarKardex')) class="active" @endif><a href="/registrarKardex">Registrar Kardex</a></li>
+          
+          <!-- RECEPCIONISTA -->
+          @if (auth()->user()->role==8)
+          <li @if(request()->is('asignarCotizacion')) class="active" @endif><a href="/asignarCotizacion">Asignar Cotización</a></li>
           @endif
+
 
           <!-- 2. VENTAS -->
           <!-- JEFE DE VENTAS -->

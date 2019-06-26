@@ -75,5 +75,13 @@ class UsersTableSeeder extends Seeder
           'password' => bcrypt('123456789'),
           'role' => 7
         ]);
+
+        //Recepcionista
+        User::create([
+          'name' => 'Recepcionista',
+          'email' => 'recepcionista@mayorista.pe',
+          'password' => bcrypt('123456789'),
+          'role' => 8
+        ]);
     }
 }
