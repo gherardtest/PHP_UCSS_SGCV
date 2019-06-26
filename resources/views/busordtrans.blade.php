@@ -47,27 +47,43 @@
                   <div class="form-group col-md-12">
                     <div class="col-md-12">
                       <table class="table table-bordered">
-                          <thead >
-                            
-                              <tr align = "center" class="bg-primary">
-                              <th scope="col" >&nbsp;</th>
-                              <th >N. Transporte</th>
-                              <th >N. Pedido</th>
-                              <th scope="col">Cliente</th>                              
-                              <th scope="col">Estado</th>           
-                              <tr>
-                          </thead>      
-                          
-                          <tr >
-                            
-                                <td align = "center">                                                                     
-                                <button type="submit" class="btn btn-primary btn-sm">Seleccionar</button> </td>                                                   
-                                <td >1</td>
-                                <td >2</td>
-                                <td scope="col">Gherard</td>                              
-                                <td scope="col">Solicitado</td>           
-                                <td>
-                            </thead>   
+                        <thead >
+                          <tr align = "center" class="bg-primary">
+                              <th></th> 
+                              <th>Cod Ord. Trans</th> 
+                              <th >Doc Cliente</th>
+                              <th >Cliente</th>
+                              <th >Direccion Envio</th>
+                              <th >Fecha envio</th>     
+                              <th >Estado</th>   
+                          </tr>
+                      </thead>      
+                      
+                       
+                        @if(count($OrdenesTransportes)>0)  
+
+                          @foreach ($OrdenesTransportes as $item)
+                          <tr>  
+                            {{ Form::open(array('action' => 'OrdenTransporteController@seleccionarOrdenTransporte', 'method' => 'POST' )) }}
+                              <td> <button
+                                    type="submit"
+                                    name="orden_transporte_id"
+                                    value="{{$item->codOrdTrans}}"
+                                    class="btn btn-primary btn-sm">Seleccionar</button>
+                              </td>
+                              <td >{{$item->codOrdTrans}}</td>  
+                              <td >{{$item->nrodoc}}</td>  
+                              <td >{{$item->nameCustomer}}</td>    
+                              <td >{{$item->direccion_envio}}</td>
+                              <td >{{$item->fecha_envio}}</td>                                                              
+                              <td scope="col">{{$item->descripcion}}</td> 
+                        
+                            {!! Form::close() !!}
+                              
+                          </tr> 
+                          @endforeach  
+
+                        @endif   
                           
                       </table>
                       </div>

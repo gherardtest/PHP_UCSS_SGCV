@@ -25,6 +25,7 @@ class OrdenTransportesTable extends Migration
             $table->string('direccion_envio');
             $table->string('contacto_ref');
             $table->string('telef_contacto_ref');
+            $table->string('observaciones')->nullable();
             $table->double('precio',5,2);
             $table->timestamps();
         });

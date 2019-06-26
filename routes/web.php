@@ -76,7 +76,6 @@ Route::get('/registrarOrdenTransporte', function () { return view('regsoltra'); 
 
 Route::post('/insertarOrdenTransporte', 'OrdenTransporteController@store');
 
-
 ////Buscar Estado Envío
 Route::get('/buscarEstadoEnvio','OrdenTransporteController@index');
 //Buscar orden de transporte
@@ -100,7 +99,13 @@ Route::post('/select', 'NotaPedidoController@seleccionarNotaPedido' );
 ////Generar Orden de Transporte
 Route::get('/generarOrdenTransporte', function () { return view('genordtra'); });
 ////Buscar Orden de Transporte
-Route::get('/buscarOrdenTransporte', function () { return view('busordtrans'); });
+Route::get('/buscarOrdenTransporte', 'OrdenTransporteController@show');
+//Seleccionar orden de transporte
+Route::post('/buscarOrdenTransporte', 'OrdenTransporteController@seleccionarOrdenTransporte');
+ 
 ////Registrar Estado de Envío
-Route::get('/registrarEstadoEnvio', function () { return view('regestenvio'); });
+Route::get('/registrarEstadoEnvio', 'OrdenTransporteController@indexBuscarOrdenTrans');
+Route::post('/updEstadoEnvio', 'OrdenTransporteController@actualizarEstadoEnvio');
+
+
 

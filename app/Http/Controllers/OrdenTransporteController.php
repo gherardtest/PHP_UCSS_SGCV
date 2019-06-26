@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\OrdenTransporte;
 
 class OrdenTransporteController extends Controller
 {
@@ -30,6 +31,10 @@ class OrdenTransporteController extends Controller
         //->where('customers.nrodoc','=',$cliente_doc)
         ->get();
         return view('buscestenv')->with(compact('OrdenesTransportes'));
+    }
+
+    public function indexBuscarOrdenTrans(){
+        return view('regestenvio');
     }
 
     /**
@@ -95,9 +100,63 @@ class OrdenTransporteController extends Controller
         
      }
 
-    public function show($id)
+    public function actualizarEstadoEnvio(Request $request){
+        $orden_transporte_id = $request['orden_transporte_id'];
+        $estado_ord_trans = $request['estado_ord_trans_id'];
+        $observaciones = $request['observaciones'];
+        
+        OrdenTransporte::where('id', '=', $orden_transporte_id)
+        ->update(array('estados_ot_id' => $estado_ord_trans,
+                       'observaciones' => $observaciones)
+        );
+
+        return redirect('/registrarEstadoEnvio');
+    }
+
+    public function seleccionarOrdenTransporte(Request $request){
+        $request->session()->put('orden_transporte_id',$request->get('orden_transporte_id'));
+       
+        $cliente= DB::table('Orden_Transporte')
+        ->join('customers', 'customers.id', '=', 'Orden_Transporte.customer_id')
+        ->join('estados_ord_trans', 'estados_ord_trans.id', '=', 'Orden_Transporte.estados_ot_id')
+        ->select('customers.nameCustomer',
+                'customers.id',
+                'customers.nrodoc',
+                'Orden_Transporte.id',
+                'Orden_Transporte.nota_pedidos_id',
+                'Orden_Transporte.fecha_envio',
+                'Orden_Transporte.direccion_envio',
+                'Orden_Transporte.estados_ot_id',
+                'estados_ord_trans.id',
+                'estados_ord_trans.descripcion')
+        ->where('orden_Transporte.id','=',$request->get('orden_transporte_id'))
+        ->first();
+        $request->session()->put('nombre_cliente', $cliente->nameCustomer);
+        $request->session()->put('nota_pedidos_id', $cliente->nota_pedidos_id);
+
+        return redirect('/registrarEstadoEnvio');
+    }
+
+    public function show()
     {
-        //
+        $OrdenesTransportes =  DB::table('Orden_Transporte')
+        ->join('customers', 'customers.id', '=', 'Orden_Transporte.customer_id')
+        ->join('estados_ord_trans', 'estados_ord_trans.id', '=', 'Orden_Transporte.estados_ot_id')
+        ->select(
+                'customers.nameCustomer',
+                'customers.id',
+                'customers.nrodoc',
+                'Orden_Transporte.id as codOrdTrans',
+                'Orden_Transporte.fecha_envio',
+                'Orden_Transporte.direccion_envio',
+                'Orden_Transporte.estados_ot_id',
+                'estados_ord_trans.id',
+                'estados_ord_trans.descripcion')
+        //->where('customers.nrodoc','=',$cliente_doc)
+        ->get();
+        return view('busordtrans')->with(compact('OrdenesTransportes'));
+        
+      
     }
 
     /**

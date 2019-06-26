@@ -18,5 +18,11 @@ class CategoriaSeeder extends Seeder
         Categoria::create([
             'descripcion' => 'Galletas',          
             ]);
+        Categoria::create([
+            'descripcion' => 'Golosinas',          
+            ]);
+        Categoria::create([
+            'descripcion' => 'Snacks',          
+            ]);
     }
 }
