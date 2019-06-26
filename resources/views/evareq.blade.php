@@ -2,7 +2,7 @@
 
 @section('content')
             <div class="panel panel-primary">
-                <div class="panel-heading">Registrar Requerimiento</div>
+                <div class="panel-heading">Evaluar Requerimiento</div>
 
                 <div class="panel-body">
         
@@ -14,12 +14,12 @@
 
                                 </div>
 
-                              <div class="col-md-6">
-                              <label for="" class="control-label ">&nbsp;</label>
-                                <a href="/xxx" class="btn btn-primary form-control">
-                                  Buscar Requerimiento
-                                </a>
-                              </div>
+                                <div class="col-md-6">
+                                        <label for="" class="control-label ">&nbsp;</label>
+                                          <a href="/buscarRequerimiento" class="btn btn-primary form-control">
+                                            Buscar Requerimiento
+                                          </a>
+                                  </div>
                           </div>
 
 

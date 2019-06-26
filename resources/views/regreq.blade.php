@@ -16,7 +16,7 @@
 
                               <div class="col-md-6">
                               <label for="" class="control-label ">&nbsp;</label>
-                                <a href="/xxx" class="btn btn-primary form-control">
+                                <a href="/buscarPersonalReq" class="btn btn-primary form-control">
                                   Buscar Personal
                                 </a>
                               </div>
@@ -33,7 +33,7 @@
                           <div class="form-group col-md-12"> 
                           <div class="col-md-6">
                                 <label for="" class="control-label ">&nbsp;</label>
-                                  <a href="/consultarProducto" class="btn btn-primary form-control">
+                                  <a href="/buscarProductoReq" class="btn btn-primary form-control">
                                     Buscar Producto
                                   </a>
                             </div>

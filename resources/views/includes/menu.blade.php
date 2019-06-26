@@ -8,14 +8,16 @@
           <!-- 1. COMPRAS -->
           <!-- JEFE DE COMPRAS -->
           @if (auth()->user()->role==1)
-          <li @if(request()->is('consultarRequerimiento')) class="active" @endif><a href="/consultarRequerimiento">Evaluar Requerimientos</a></li>
           <li @if(request()->is('registrarProveedor')) class="active" @endif><a href="/registrarProveedor">Registrar Proveedor</a></li>
+          <li @if(request()->is('evaluarRequerimiento')) class="active" @endif><a href="/evaluarRequerimiento">Evaluar Requerimientos</a></li>
+          <!--<li @if(request()->is('buscarRequerimiento')) class="active" @endif><a href="/buscarRequerimiento">Buscar Requerimientos</a></li>-->
+          
           <!--<li @if(request()->is('registroSolicitudProforma')) class="active" @endif><a href="/registroSolicitudProforma">Registrar Solicitud de Proforma</a></li> -->
           @endif
 
           @if (auth()->user()->role==2)
           <!-- AUXILIAR DE COMPRAS -->
-          <li @if(request()->is('consultarSolicitudProforma')) class="active" @endif><a href="/consultarSolicitudProforma">Consultar Solicitudes de Proforma</a></li>
+          <li @if(request()->is('registrarSolicitudProforma')) class="active" @endif><a href="/registrarSolicitudProforma">Registrar Solicitud de Proforma</a></li>
           <li @if(request()->is('registrarOrdenCompra')) class="active" @endif><a href="/registrarOrdenCompra">Registrar Orden de Compra</a></li>
           @endif
 

@@ -64,7 +64,7 @@
 
                           <div class="col-md-6">
                               <label for="" class="control-label ">&nbsp;</label>
-                                <a href="/xxx" class="btn btn-primary form-control">
+                                <a href="/buscarPersonalTra" class="btn btn-primary form-control">
                                   Buscar Personal
                                 </a>
                           </div>
