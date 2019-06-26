@@ -52,7 +52,7 @@
           <!-- 3. TRANSPORTE -->
           <!-- ENCARGADO DE TRANSPORTE -->
           @if (auth()->user()->role==7)
-          <li @if(request()->is('generarOrdenTransporte')) class="active" @endif><a href="/generarOrdenTransporte">Generar OrdenTransporte</a></li>
+          <li @if(request()->is('generarOrdenTransporte')) class="active" @endif><a href="/generarOrdenTransporte">Gestionar Entrega</a></li>
           <!-- <li @if(request()->is('consultarOrdenTransporte')) class="active" @endif><a href="/consultarOrdenTransporte">Buscar Orden de Transporte</a></li>  -->
           <li @if(request()->is('registrarEstadoEnvio')) class="active" @endif><a href="/registrarEstadoEnvio">Cerrar Orden de Transporte</a></li>
           @endif

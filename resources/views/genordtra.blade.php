@@ -2,7 +2,7 @@
 
 @section('content')
             <div class="panel panel-primary">
-                <div class="panel-heading">Generar Orden de Transporte</div>
+                <div class="panel-heading">Gestionar Entrega</div>
 
                 <div class="panel-body">
 
@@ -46,18 +46,69 @@
 
                         
                         <div class="col-md-6">
-                          <label for="street1_id" class="control-label">Nombres del Cliente</label>
-                          @if(Session::has('nrodoccli'))
-                          <input type="text" class="form-control textform" disabled="true" id="street1_id" name="street1" readonly value="{{$nameCustomer}}" >
-                        
-                          
-                            @else
-                            <input type="text" class="form-control textform" readonly id="street1_id" disabled="true" >
-                       
-                             @endif
-                            </div>
+                            <label for="street1_id" class="control-label ">Empresa Transportista</label>
+                            
+                            <input type="text" class="form-control textform" id="obs" name="observaciones" value="">                           
                         </div>
 
+                        </div>
+
+
+                        <div class="form-group col-md-12">
+                          
+                          <div class="col-md-6">
+                              <label for="street1_id" class="control-label ">Encargado de Despacho</label>
+                              
+                              <input type="text" class="form-control textform" disabled="true" id="obs" name="observaciones" value="">                           
+                          </div>
+
+                          <div class="col-md-6">
+                              <label for="" class="control-label ">&nbsp;</label>
+                                <a href="/xxx" class="btn btn-primary form-control">
+                                  Buscar Personal
+                                </a>
+                          </div>
+  
+                          </div>
+
+                          <div class="form-group col-md-12">                          
+                              <div class="col-md-6">
+                                  <label for="street1_id" class="control-label">Fecha De Despacho</label>
+                                  <input class="form-control" type="date" name="fecha_envio" value="2019-06-02" id="example-datetime-local-input">
+                              </div>
+    
+                              <div class="col-md-6">
+                                  <label for="street1_id" class="control-label ">Hora de Despacho</label>
+                                  
+                                  <input type="text" class="form-control textform"  id="obs" name="observaciones" value="">                           
+                              </div>
+      
+                          </div>
+
+
+                          
+                        <div class="form-group col-md-12">
+                          <div class="col-md-6">
+                              <label for="street1_id" class="control-label ">Encargado de Recepción</label>
+                              
+                              <input type="text" class="form-control textform" id="obs" name="observaciones" value="">                           
+                          </div>
+                       
+                          <div class="col-md-6">
+                              <label for="street1_id" class="control-label ">DNI Encargado de Recepción</label>
+                              
+                              <input type="text" class="form-control textform" id="obs" name="observaciones" value="">                           
+                          </div>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                        <div class="col-md-12">
+                            <label for="street1_id" class="control-label ">Observaciones</label>
+                            
+                            <input type="text" class="form-control textform" id="obs" name="observaciones" value="">
+                           
+                        </div>
+                      </div>
                         
                         <div class="form-group col-md-12">
                                 <div class="col-md-12">
@@ -82,7 +133,7 @@
                           <div class="form-group col-md-12"> <!-- Street 1 -->
                             <div class="col-md-6">
                               <a href="/generarOrdenTransporte" class="btn btn-primary">
-                                Generar Orden
+                                Registrar Entrega
                               </a>
                             </div>
                             <div class="col-md-6">
