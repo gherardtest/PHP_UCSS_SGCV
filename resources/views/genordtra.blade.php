@@ -78,9 +78,8 @@
                               </div>
     
                               <div class="col-md-6">
-                                  <label for="street1_id" class="control-label ">Hora de Despacho</label>
-                                  
-                                  <input type="text" class="form-control textform"  id="obs" name="observaciones" value="">                           
+                                  <label for="street1_id" class="control-label">Fecha De Despacho</label>
+                                  <input class="form-control" type="time" name="fecha_envio" value="2019-06-02" id="example-datetime-local-input">
                               </div>
       
                           </div>
