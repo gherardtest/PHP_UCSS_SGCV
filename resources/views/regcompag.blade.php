@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="panel panel-primary">
-    <div class="panel-heading">Generar Comprobante de pago</div>
+    <div class="panel-heading">Registrar Comprobante de pago</div>
 
     <div class="panel-body">
 
@@ -159,7 +159,7 @@
               <div class="form-group col-md-12"> <!-- Street 1 -->
 
                 <div class="col-md-6">
-                        <button for="" type="submit" class="btn btn-primary">Generar Comprobante de pago</button>
+                        <button for="" type="submit" class="btn btn-primary">Registrar Comprobante de pago</button>
                 </div>
 
               </div>

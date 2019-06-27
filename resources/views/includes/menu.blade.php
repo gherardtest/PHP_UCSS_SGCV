@@ -47,7 +47,7 @@
 
           @if (auth()->user()->role==6)
           <!-- CAJERO -->
-          <li @if(request()->is('registrarComprobantePago')) class="active" @endif><a href="/registrarComprobantePago">Generar Comprobante de Pago</a></li>
+          <li @if(request()->is('registrarComprobantePago')) class="active" @endif><a href="/registrarComprobantePago">Registrar Comprobante de Pago</a></li>
           <li @if(request()->is('consultarNotaPedido')) class="active" @endif><a href="/consultarNotaPedido">Consultar Nota de Pedido</a></li>
           @endif
 
