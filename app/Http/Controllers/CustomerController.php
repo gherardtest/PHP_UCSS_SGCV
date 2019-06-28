@@ -49,8 +49,9 @@ class CustomerController extends Controller
     {
         $data = $request->except('_token'); 
         Customer::create($data);
+        \Session::flash('success','Registro Correcto');
         
-        return redirect('/consultarCliente');
+        return redirect('/registrarCliente');
     }
 
     /**

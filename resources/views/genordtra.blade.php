@@ -36,7 +36,7 @@
                           <div class="col-md-6">  <!-- Id Nota Pedido -->
                             <label for="street1_id" class="control-label ">Nro. Nota de Pedido</label>
                           @if(Session::has('nota_pedidos_id'))
-                            <input type="text" class="form-control textform" disabled="true" id="nota_pedido_id" name="nota_pedidos_id" readonly value="{{$nota_pedido_id}}">
+                            <input type="text" class="form-control textform" disabled="true" id="nota_pedido_id" name="nota_pedidos_id" readonly value="">
                           @else
                           <input type="text" class="form-control textform" id="nota_pedido_id" name="nota_pedidos_id" disabled="true" >
                       

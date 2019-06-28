@@ -70,8 +70,8 @@ class ComprobantePagoController extends Controller
         $id = $data['nota_pedidos_id'];
          
         NotaPedido::where('id', '=', $id)->update(array('estadoNotaPedido' => 2));
-        
-        return redirect('consultarNotaPedido');
+        \Session::flash('success','Registro Correcto');
+        return redirect('/registrarComprobantePago');
       
     }
 
