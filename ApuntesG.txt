@@ -92,7 +92,15 @@ Modelo Entidad Relación (Aulas, Cursos)
 Diagrama de Despliegue
 
 
-
+---------------------------------
+PONER EN EL CD:
+- WORD (PROYECTO)
+- VIDEO DEL SISTEMA
+- SISTEMA
+- EXCEL (CASOS DE PRUEBA)
+- MANUAL DE INSTALACIÓN (SUBIDA A LA WEB)
+- DVD SEDIGRAFIADO (CON DISEÑO, NOMBRE DEL CURSO Y PARTICIPANTES, CICLO 2019 I)
+- MODELO DE DATOS (BASE DE DATOS)
 
 
 

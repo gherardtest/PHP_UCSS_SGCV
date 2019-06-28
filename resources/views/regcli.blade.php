@@ -13,7 +13,7 @@
 
                               <div class="col-md-6">
                                   <label for="street1_id" class="control-label ">DNI / RUC</label>
-                                  <input type="text" pattern="^([0-9]{0,2}){5,12}$" class="form-control textform" id="street1_id" name="nrodoc"  placeholder="Numero de documento del cliente" required>
+                                  <input type="text" pattern="^([0-9]{0,2}){5,12}$ class="form-control textform" id="street1_id" name="nrodoc"  placeholder="Numero de documento del cliente" required>
                               </div>
 
                           </div>
