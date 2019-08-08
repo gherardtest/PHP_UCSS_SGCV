@@ -16,7 +16,7 @@
 12. Copiar el enlace generado en tu navegador.
 13. Realiza tus pruebas en el sistema.
 
-Hecho por: Gherard Chipana Quiñones
+Hecho por: Gherard Anthony Chipana Quiñones
 
 */
 
